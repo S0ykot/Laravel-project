@@ -18,20 +18,25 @@ Route::get('/', function () {
 Route::get('/login', 'login@index')->name('login');
 Route::post('/login', 'login@verify');
 
-Route::get('/student/registration', 'studentReg@index')->name('studentReg');
+Route::group(['middleware'=>['sess']],function(){
+	
+	Route::get('/student/registration', 'studentReg@index')->name('studentReg');
 
-Route::get('/student/registration/credentials', 'studentReg@cred')->name('studentRegCred');
+	Route::get('/student/registration/credentials', 'studentReg@cred')->name('studentRegCred');
 
-Route::get('/student/home', 'studentHome@index')->name('studentHome');
+	Route::get('/student/home', 'studentHome@index')->name('studentHome');
 
-Route::get('/student/research', 'studentResearch@index')->name('studentResearch');
+	Route::get('/student/research', 'studentResearch@index')->name('studentResearch');
 
-Route::get('/student/availableTopics', 'studentTopicsWindow@index')->name('studentTopicsWindow');
+	Route::get('/student/availableTopics', 'studentTopicsWindow@index')->name('studentTopicsWindow');
 
-Route::get('/student/topic/details/{id}', 'studentTopicsWindow@topicDetails')->name('topicDetails');
+	Route::get('/student/topic/details/{id}', 'studentTopicsWindow@topicDetails')->name('topicDetails');
 
-Route::get('/student/file/upload', 'studentFile@uploadIndex')->name('file.upload');
+	Route::get('/student/file/upload', 'studentFile@uploadIndex')->name('file.upload');
 
-Route::get('/student/file/download', 'studentFile@downloadIndex')->name('file.download');
+	Route::get('/student/file/download', 'studentFile@downloadIndex')->name('file.download');
 
-Route::get('/student/passwordChange', 'studentPassword@index')->name('studentPassword');
+	Route::get('/student/passwordChange', 'studentPassword@index')->name('studentPassword');
+
+	Route::get('/logout', 'logout@index');
+});
