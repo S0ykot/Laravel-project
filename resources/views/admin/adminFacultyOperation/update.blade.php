@@ -262,52 +262,35 @@
 				</div>
 
 				<form method="POST" class="login101-form validate-form">
+                    {{csrf_field()}}
           <div class="wrap-input100 validate-input m-b-26" data-validate="Academic Id is required">
-            <input class="input100" type="text" name="userid" placeholder="Enter Faculty ID" value="<%= teacher.faculty_id%>">
+            <input class="input100" type="text" name="userid" placeholder="Enter Faculty ID" value="{{$faculty_id}}">
             <span class="focus-input100"></span>
-            <%if(error.userid){%>
-              <b style="color: red;"><%= error.userid.msg%></b>
-            <%}%>
           </div>
 
           <div class="wrap-input100 validate-input m-b-18" data-validate = "First Name is required">
-            <input class="input100" type="text" name="fname" placeholder="Enter First Name" value="<%= teacher.faculty_fname%>">
+            <input class="input100" type="text" name="fname" placeholder="Enter First Name" value="{{$faculty_fname}}">
             <span class="focus-input100"></span>
-            <%if(error.fname){%>
-              <b style="color: red;"><%= error.fname.msg%></b>
-            <%}%>
           </div>
 
           <div class="wrap-input100 validate-input m-b-26" data-validate="Last Name is required">
-            <input class="input100" type="text" name="lname" placeholder="Enter Last Name" value="<%= teacher.faculty_lname%>">
+            <input class="input100" type="text" name="lname" placeholder="Enter Last Name" value="{{$faculty_lname}}">
             <span class="focus-input100"></span>
-            <%if(error.lname){%>
-              <b style="color: red;"><%= error.lname.msg%></b>
-            <%}%>
           </div>
 
           <div class="wrap-input100 validate-input m-b-18" data-validate = "Email is required">
-            <input class="input100" type="text" name="email" placeholder="Enter Valid Email" value="<%= teacher.faculty_email%>">
+            <input class="input100" type="text" name="email" placeholder="Enter Valid Email" value="{{$faculty_email}}">
             <span class="focus-input100"></span>
-            <%if(error.email){%>
-              <b style="color: red;"><%= error.email.msg%></b>
-            <%}%>
           </div>
 
           <div class="wrap-input100 validate-input m-b-18" data-validate = "Contact No. is required">
-            <input class="input100" type="text" name="contact" placeholder="Enter Contact Number" value="<%= teacher.faculty_contact%>">
+            <input class="input100" type="text" name="contact" placeholder="Enter Contact Number" value="{{$faculty_contact}}">
             <span class="focus-input100"></span>
-            <%if(error.contact){%>
-              <b style="color: red;"><%= error.contact.msg%></b>
-            <%}%>
           </div>
 
           <div class="wrap-input100 validate-input m-b-18" data-validate = "Department Name is required">
-            <input class="input100" type="text" name="dept" placeholder="Enter Department" value="<%= teacher.faculty_dept%>" readonly>
+            <input class="input100" type="text" name="dept" placeholder="Enter Department" value="{{$faculty_dept}}" readonly>
             <span class="focus-input100"></span>
-            <%if(error.dept){%>
-              <b style="color: red;"><%= error.dept.msg%></b>
-            <%}%>
           </div>
 
           <div id="login100-form-Btn">

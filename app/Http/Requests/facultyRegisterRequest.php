@@ -32,4 +32,17 @@ class facultyRegisterRequest extends FormRequest
             'dept'=>'required'
         ];
     }
+
+
+    public function messages(){
+        return [
+            'userid.required'=>"Faculty ID can't left empty!",
+            'fname.required'=>"First name can't left empty!",
+            'lname.required'=>"Last name can't left empty!",
+            'email.required'=>"Email can't left empty!",
+            'email.email'=>"Email must be a valid email ID",
+            'contact.required'=>"Contact no can't left empty!",
+            'dept.required'=>"Department name can't left empty!"
+        ];
+    }
 }

@@ -27,5 +27,5 @@ Route::post('/admin/addFaculty', 'adminAddFaculty@facultyRegister');
 Route::get('/admin/activeFaculty', 'adminActiveFacultyList@index')->name('activeFacultyList.index');
 Route::get('/admin/inactiveFaculty', 'adminInactiveFacultyList@index')->name('inactiveFacultyList.index');
 
-Route::get('/admin/updateFaculty', 'adminUpdateFaculty@index')->name('adminUpdateFaculty.index');
-Route::post('/admin/updateFaculty', 'adminUpdateFaculty@facultyUpdate');
+Route::get('/admin/updateFaculty/{id}', 'adminUpdateFaculty@index')->name('adminUpdateFaculty.index');
+Route::post('/admin/updateFaculty/{id}', 'adminUpdateFaculty@facultyUpdate');

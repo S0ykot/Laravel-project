@@ -291,7 +291,7 @@
       					            <td style="color: red;">Inactive</td>
                             
       					            <td>
-      									<a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="">Update</a> 
+      									<a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="{{route('adminUpdateFaculty.index', $key['faculty_id'])}}">Update</a> 
       								</td> 
       								<td>
                                         <a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="">Unblock</a> 
