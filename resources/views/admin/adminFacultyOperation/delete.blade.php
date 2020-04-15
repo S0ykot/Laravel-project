@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Inactive Faculty List</title>
+    <title>Confirmation</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -177,15 +177,15 @@
           <div class="main-navbar sticky-top bg-white">
             <!-- Main Navbar -->
             <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
-             
-            <div class="input-group input-group-seamless ml-3">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="fas fa-search"></i>
-                </div>
-              </div>
-              <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
-              
+              <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
+                <div class="input-group input-group-seamless ml-3">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fas fa-search"></i>
+                    </div>
+                  </div>
+                  <input class="navbar-search form-control" type="text" placeholder="" aria-label="Search" disabled> </div>
+              </form>
               <ul class="navbar-nav border-left flex-row ">
                 <!-- <li class="nav-item border-right dropdown notifications">
                   <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -250,7 +250,7 @@
             <div class="page-header row no-gutters py-4">
               <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                 <span class="text-uppercase page-subtitle">Overview</span>
-                <h3 class="page-title">Inactive Faculty List</h3>
+                <h3 class="page-title">Faculty Delete Confirmation</h3>
               </div>
             </div>
             <!-- End Page Header -->
@@ -262,48 +262,73 @@
                     <h6 class="m-0">Active Users</h6>
                   </div> -->
                   <div class="card-body p-0 pb-3 text-center">
-                    <table class="table mb-0">
-                      <thead class="bg-light">
-                        <tr>
-                          <th scope="col" class="border-0">Faculty ID</th>
-                          <th scope="col" class="border-0">First Name</th>
-                          <th scope="col" class="border-0">Last Name</th>
-                          <th scope="col" class="border-0">Email</th>
-                          <th scope="col" class="border-0">Phone</th>
-                          <th scope="col" class="border-0">Department</th>
-                          <th scope="col" class="border-0">Register Date</th>
-                          <th scope="col" class="border-0">Account Status</th>
-                          <th scope="col" class="border-0" colspan="3">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <div id="faculty">
-                            @foreach ($faculty as $key)
-                        
-          				        <tr>
-          				        	<td>{{$key['faculty_id']}}</td>
-      				              	<td>{{$key['faculty_fname']}}</td>
-      					            <td>{{$key['faculty_lname']}}</td>
-      					            <td>{{$key['faculty_email']}}</td>
-      					            <td>{{$key['faculty_contact']}}</td>
-      					            <td>{{$key['faculty_dept']}}</td>
-      					            <td>{{$key['faculty_regDate']}}</td>
-      					            <td style="color: red;">Inactive</td>
-                            
-      					            <td>
-      									<a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="{{route('adminUpdateFaculty.index', $key['faculty_id'])}}">Update</a> 
-      								</td> 
-      								<td>
-                                        <a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="{{route('adminUnblockFaculty', $key['fid'])}}">Unblock</a> 
-      						        </td>
-                                    <td>
-                                        <a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="{{route('adminDeleteFaculty.index', $key['faculty_id'])}}">Delete</a> 
-                                    </td>
-      						    </tr>
-    					    @endforeach
-                          </tbody>
-                      </div>
-                    </table>
+                    
+                  <table class="table mb-0">
+                    <thead class="bg-light">
+                      <tr>
+                        <th scope="col" class="border-0" style="color: DodgerBlue;">Criterion</th>
+                        <th scope="col" class="border-0" style="color: DodgerBlue;">Information</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+
+                      <tr>
+                        <td>Faculty ID</td>
+                        <td>{{$faculty_id}}</td>
+                      </tr>
+
+                      <tr>
+                        <td>First Name</td>
+                        <td>{{$faculty_fname}}</td>
+                      </tr>
+
+                      <tr>
+                        <td>Last Name</td>
+                        <td>{{$faculty_lname}}</td>
+                      </tr>
+
+                      <tr>
+                        <td>Email</td>
+                        <td>{{$faculty_email}}</td>
+                      </tr>
+
+                      <tr>
+                        <td>Phone</td>
+                        <td>{{$faculty_contact}}</td>
+                      </tr>
+
+                      <tr>
+                        <td>Department</td>
+                        <td>{{$faculty_dept}}</td>
+                      </tr>
+
+                      <tr>
+                        <td>Account Status</td>
+                    @if($status == 1)
+                        <td style="color: green;">Active</td>
+                    @else
+                        <td style="color: red;">Inactive</td>
+                    @endif
+                    <form method="POST">
+                    {{csrf_field()}}
+                        <td><input type="text" name="id" hidden value="{{$faculty_id}}"></td>
+                      </tr>
+
+                      <tr>
+                        <td colspan="2"><h3 style="color: red;">Are you sure to delete?</h3></td>
+                      </tr>
+
+                      <tr>
+                        <td colspan="2">
+                        	<input type="submit" name="submit" value="Delete">
+                        	&emsp;&emsp;&emsp;&emsp;
+                        	<a href="{{route('adminHome.index')}}"><input type="button" name="cancel" value="Cancel"></a>
+                        </td>
+                      </tr>
+                  </form>
+                    </tbody>
+                  </table>
+                    
                   </div>
                 </div>
               </div>

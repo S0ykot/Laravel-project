@@ -29,3 +29,12 @@ Route::get('/admin/inactiveFaculty', 'adminInactiveFacultyList@index')->name('in
 
 Route::get('/admin/updateFaculty/{id}', 'adminUpdateFaculty@index')->name('adminUpdateFaculty.index');
 Route::post('/admin/updateFaculty/{id}', 'adminUpdateFaculty@facultyUpdate');
+
+Route::get('/admin/deleteFaculty/{id}', 'adminDeleteFaculty@index')->name('adminDeleteFaculty.index');
+Route::post('/admin/deleteFaculty/{id}', 'adminDeleteFaculty@facultyDelete');
+
+Route::get('/admin/blockFaculty/{id}', 'adminFacultyAccountManage@facultyBlock')->name('adminBlockFaculty');
+Route::post('/admin/blockFaculty/{id}', 'adminFacultyAccountManage@facultyBlockDone');
+
+Route::get('/admin/unblockFaculty/{id}', 'adminFacultyAccountManage@facultyUnblock')->name('adminUnblockFaculty');
+Route::post('/admin/unblockFaculty/{id}', 'adminFacultyAccountManage@facultyUnblockDone');
