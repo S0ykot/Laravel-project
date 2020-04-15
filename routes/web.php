@@ -23,3 +23,9 @@ Route::get('/admin/home', 'adminHome@index')->name('adminHome.index');
 
 Route::get('/admin/addFaculty', 'adminAddFaculty@index')->name('adminAddFaculty.index');
 Route::post('/admin/addFaculty', 'adminAddFaculty@facultyRegister');
+
+Route::get('/admin/activeFaculty', 'adminActiveFacultyList@index')->name('activeFacultyList.index');
+Route::get('/admin/inactiveFaculty', 'adminInactiveFacultyList@index')->name('inactiveFacultyList.index');
+
+Route::get('/admin/updateFaculty', 'adminUpdateFaculty@index')->name('adminUpdateFaculty.index');
+Route::post('/admin/updateFaculty', 'adminUpdateFaculty@facultyUpdate');

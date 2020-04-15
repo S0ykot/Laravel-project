@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard </title>
+    <title>Active Faculty List</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -49,21 +49,15 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('adminAddFaculty.index')}}">
+                <a class="nav-link " href="/AdminTeacherReg">
                   <i class="material-icons">note_add</i>
                   <span>Add Faculty</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('activeFacultyList.index')}}">
+                <a class="nav-link " href="/AdminTeacherDetails">
                   <i class="material-icons">vertical_split</i>
-                  <span>Active Faculty List</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="{{route('inactiveFacultyList.index')}}">
-                  <i class="material-icons">vertical_split</i>
-                  <span>Inactive Faculty List</span>
+                  <span>Faculty List</span>
                 </a>
               </li>
               <li class="nav-item">
@@ -183,21 +177,21 @@
           <div class="main-navbar sticky-top bg-white">
             <!-- Main Navbar -->
             <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
-              <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
-                <div class="input-group input-group-seamless ml-3">
-                  <div class="input-group-prepend">
-                    <div class="input-group-text">
-                      <!-- <i class="fas fa-search"></i> -->
-                    </div>
-                  </div>
-                  <input class="navbar-search form-control" type="text" readonly> </div>
-              </form>
+             
+            <div class="input-group input-group-seamless ml-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fas fa-search"></i>
+                </div>
+              </div>
+              <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
+              
               <ul class="navbar-nav border-left flex-row ">
-               <!--  <li class="nav-item border-right dropdown notifications">
+                <!-- <li class="nav-item border-right dropdown notifications">
                   <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="nav-link-icon__wrapper">
                       <i class="material-icons">&#xE7F4;</i>
-                      <span class="badge badge-pill badge-danger"></span>
+                      <span class="badge badge-pill badge-danger">2</span>
                     </div>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small" aria-labelledby="dropdownMenuLink">
@@ -234,9 +228,10 @@
                     <span class="d-none d-md-inline-block">Admin</span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
+                    
                     <a class="dropdown-item" href="/AdminChangePassword">
                       <i class="material-icons">&#xE7FD;</i> Change Password</a>
-                    <div class="dropdown-divider"></div>
+                      <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="/logout">
                       <i class="material-icons text-danger">&#xE879;</i> Logout </a>
                   </div>
@@ -249,15 +244,73 @@
               </nav>
             </nav>
           </div>
-
-          <div>
-          	<center>
-	          	<h1>Welcome Admin Panel</h1><br><br>
-	          	<h4>UserID: {{ $uid }}</h4>
-	        </center>
-          </div>
           <!-- / .main-navbar -->
+          <div class="main-content-container container-fluid px-4">
+            <!-- Page Header -->
+            <div class="page-header row no-gutters py-4">
+              <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                <span class="text-uppercase page-subtitle">Overview</span>
+                <h3 class="page-title">Active Faculty List</h3>
+              </div>
+            </div>
+            <!-- End Page Header -->
+            <!-- Default Light Table -->
+            <div class="row">
+              <div class="col">
+                <div class="card card-small mb-4">
+                  <!-- <div class="card-header border-bottom">
+                    <h6 class="m-0">Active Users</h6>
+                  </div> -->
+                  <div class="card-body p-0 pb-3 text-center">
+                    <table class="table mb-0">
+                      <thead class="bg-light">
+                        <tr>
+                          <th scope="col" class="border-0">Faculty ID</th>
+                          <th scope="col" class="border-0">First Name</th>
+                          <th scope="col" class="border-0">Last Name</th>
+                          <th scope="col" class="border-0">Email</th>
+                          <th scope="col" class="border-0">Phone</th>
+                          <th scope="col" class="border-0">Department</th>
+                          <th scope="col" class="border-0">Register Date</th>
+                          <th scope="col" class="border-0">Account Status</th>
+                          <th scope="col" class="border-0" colspan="3">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <div id="faculty">
+                            @foreach ($faculty as $key)
+                        
+          				        <tr>
+          				        	<td>{{$key['faculty_id']}}</td>
+      				              	<td>{{$key['faculty_fname']}}</td>
+      					            <td>{{$key['faculty_lname']}}</td>
+      					            <td>{{$key['faculty_email']}}</td>
+      					            <td>{{$key['faculty_contact']}}</td>
+      					            <td>{{$key['faculty_dept']}}</td>
+      					            <td>{{$key['faculty_regDate']}}</td>
+      					            <td style="color: green;">Active</td>
+                            
+      					            <td>
+      									<a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="{{route('adminUpdateFaculty.index', $key['faculty_id'])}}">Update</a> 
+      								</td> 
+      								<td>
+                                        <a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="">Block</a> 
+      						        </td>
+                                    <td>
+                                        <a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="">Delete</a> 
+                                    </td>
+      						    </tr>
+    					    @endforeach
+                          </tbody>
+                      </div>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
+            
           </footer>
         </main>
       </div>
@@ -270,6 +323,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
     <script src="/scripts/extras.1.1.0.min.js"></script>
     <script src="/scripts/shards-dashboards.1.1.0.min.js"></script>
-    <script src="/scripts/app/app-blog-overview.1.1.0.js"></script>
   </body>
 </html>
