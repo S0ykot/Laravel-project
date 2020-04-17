@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js h-100" lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Profile Details</title>
@@ -12,17 +13,18 @@
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="/styles/shards-dashboards.1.1.0.min.css">
     <link rel="stylesheet" href="/styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-  </head>
-  <body class="h-100">
-    
+</head>
+
+<body class="h-100">
+
     <div class="container-fluid">
-      <div class="row">
-        @yield('nav')
-      </div>
+        <div class="row">
+            @yield('nav')
+        </div>
     </div>
     <div class="promo-popup animated">
-      <a href="http://bit.ly/shards-dashboard-pro" class="pp-cta extra-action">
-        <img src="https://dgc2qnsehk7ta.cloudfront.net/uploads/sd-blog-promo-2.jpg"> </a>
+        <a href="http://bit.ly/shards-dashboard-pro" class="pp-cta extra-action">
+            <img src="https://dgc2qnsehk7ta.cloudfront.net/uploads/sd-blog-promo-2.jpg"> </a>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -32,5 +34,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
     <script src="/scripts/extras.1.1.0.min.js"></script>
     <script src="/scripts/shards-dashboards.1.1.0.min.js"></script>
-  </body>
+</body>
+
 </html>

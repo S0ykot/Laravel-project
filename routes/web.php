@@ -17,14 +17,15 @@ Route::get('/', function () {
 
 Route::get('/login', 'login@index')->name('login');
 Route::post('/login', 'login@verify');
+Route::get('/student/registration', 'studentReg@index')->name('studentReg');
+Route::post('/student/registration', 'studentReg@send');
 
 Route::group(['middleware'=>['sess']],function(){
 	
-	Route::get('/student/registration', 'studentReg@index')->name('studentReg');
-
 	Route::get('/student/registration/credentials', 'studentReg@cred')->name('studentRegCred');
 
 	Route::get('/student/home', 'studentHome@index')->name('studentHome');
+	Route::post('/student/home', 'studentHome@update');
 
 	Route::get('/student/research', 'studentResearch@index')->name('studentResearch');
 
@@ -39,4 +40,7 @@ Route::group(['middleware'=>['sess']],function(){
 	Route::get('/student/passwordChange', 'studentPassword@index')->name('studentPassword');
 
 	Route::get('/logout', 'logout@index');
+
+	//Route::resource('user', 'UserController');
+	//Route::resource('student', 'StudentController');
 });

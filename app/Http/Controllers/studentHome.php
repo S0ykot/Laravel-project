@@ -2,15 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\student;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request;
+use App\Http\Requests\StudentRequest;
 
 class studentHome extends Controller
 {
-    public function index(Request $req){
-    	$student = student::where('student_id', $req->session()->get('username'))->first();
-    	return view('student.home.content', $student);
-    	//echo $student->student_fname;
+    public function index(Request $req)
+    {
+        $student = student::where('student_id', $req->session()->get('username'))->first();
+        $req->session()->put('sid', $student->sid);
+        return view('student.home.content', $student);
+    }
+
+    public function update(StudentRequest $request, $sid)
+    {
+        $val = $request->validated();
+
+        if($val==null){
+            return back()->withError($val)->withInput();
+            //print("Something wrong");
+        }else{
+            //echo $request->student_lname;
+            $student=student::findOrfail($sid);
+            $student->student_fname = $request->student_fname;
+            $student->student_lname = $request->student_lname;
+            $student->student_dept = $request->student_dept;
+            $student->student_credit = $request->student_credit;
+            $student->student_cgpa = $request->student_cgpa;
+            $student->student_contact = $request->student_contact;
+            $student->save();
+            return redirect()->route('student.index');
+        }
+        
+
     }
 }

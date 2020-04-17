@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class user extends Model
 {
-	protected $table = "user";
+    protected $table = "user";
     public $timestamps = false;
     protected $primaryKey = 'uid';
 }
