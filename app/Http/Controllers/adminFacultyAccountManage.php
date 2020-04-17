@@ -22,4 +22,20 @@ class adminFacultyAccountManage extends Controller
             return redirect()->route('adminBlockFaculty', $id);
         }
     }
+
+
+    public function facultyUnblock($id){
+        
+        $faculty = faculty::all()->where('fid', $id)->first();
+        return view('admin.adminFacultyOperation.unblock', $faculty);
+    }
+
+
+    public function facultyUnblockDone($id, Request $req){
+        if(DB::table('faculty')->where('fid', $id)->update(['status' => 1])){
+            return redirect()->route('inactiveFacultyList.index');
+        }else{
+            return redirect()->route('adminUnblockFaculty', $id);
+        }
+    }
 }

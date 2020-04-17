@@ -38,3 +38,6 @@ Route::post('/admin/blockFaculty/{id}', 'adminFacultyAccountManage@facultyBlockD
 
 Route::get('/admin/unblockFaculty/{id}', 'adminFacultyAccountManage@facultyUnblock')->name('adminUnblockFaculty');
 Route::post('/admin/unblockFaculty/{id}', 'adminFacultyAccountManage@facultyUnblockDone');
+
+Route::get('/admin/addStudent', 'adminAddStudent@index')->name('adminAddStudent.index');
+Route::post('/admin/addStudent', 'adminAddStudent@studentRegister');

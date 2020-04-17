@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="no-js h-100" lang="en">
 <head>
-	<title>Add Faculty</title>
+	<title>Add Student</title>
 	<meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard</title>
+    <title>Dashboard </title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -37,7 +37,7 @@
 <!--===============================================================================================-->
 </head>
 <body class="h-100">
-	    <!-- <div class="color-switcher animated">
+	<!-- <div class="color-switcher animated">
       <h5>Accent Color</h5>
       <ul class="accent-colors">
         <li class="accent-primary active" data-color="primary">
@@ -59,6 +59,15 @@
           <i class="material-icons">check</i>
         </li>
       </ul>
+      <div class="actions mb-4">
+          <i class="material-icons">book</i> Documentation</a>
+      </div>
+      <div class="social-wrapper">
+        <div id="social-share" data-url="https://designrevision.com/downloads/shards-dashboard-lite/" data-text="🔥 Check out Shards Dashboard Lite, a free and beautiful Bootstrap 4 admin dashboard template!" data-title="share"></div>
+        <div class="loading-overlay">
+          <div class="spinner"></div>
+        </div>
+      </div>
       <div class="close">
         <i class="material-icons">close</i>
       </div>
@@ -66,7 +75,6 @@
     <div class="color-switcher-toggle animated pulse infinite">
       <i class="material-icons">settings</i>
     </div> -->
-
     <div class="container-fluid">
       <div class="row">
         <!-- Main Sidebar -->
@@ -226,8 +234,8 @@
           </div>
         </aside>
         <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
-            <div class="limiter"  class="component-center">
-              <div style="margin-left: 83%;height: 20%">
+              <div class="limiter">
+                <div style="margin-left: 161%;height: 20%">
         <ul>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -245,61 +253,73 @@
             </li>
         </ul>
       </div>
-		<div class="container-login100" style="width:900px;margin-left: 100px">
-			<div class="wrap-login101" class="text-center">
-				<div class="login100-form-title" style="background-image: url(/images/unnamed.jpg);">
-					<span class="login100-form-title-1">
-						Add Faculty
-					</span>
-				</div>
+    <div class="container-login100" style="width:150%; margin-left:40%;">
+      <div class="wrap-login101">
+        <div class="login100-form-title" style="background-image: url(/images/unnamed.jpg);">
+          <span class="login100-form-title-1">
+            Add Student
+          </span>
+        </div>
 
-				<form method="POST" class="login101-form validate-form">
-                    {{ csrf_field() }}
-                    <center>
-                        @foreach($errors->all() as $error)
-                            <b style="color: red;">{{$error}}</b>
-                        @endforeach
-                    </center>
-					<div class="wrap-input100 validate-input m-b-26" data-validate="Academic Id is required">
-						<input class="input100" type="text" name="userid" placeholder="Enter Faculty ID">
-						<span class="focus-input100"></span>
-					</div>
+        <form method="POST" class="login101-form validate-form">
+            {{ csrf_field() }}
+            <center>
+                @foreach($errors->all() as $error)
+                    <h4 style="color: red;">{{$error}}</h4>
+                @endforeach
+            </center>
+          <div class="wrap-input100 validate-input m-b-26" data-validate="Academic Id is required">
+            <input class="input100" type="text" name="userid" placeholder="Enter Academic ID">
+            <span class="focus-input100"></span>
+          </div>
 
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "First Name is required">
-						<input class="input100" type="text" name="fname" placeholder="Enter First Name">
-						<span class="focus-input100"></span>
-					</div>
+          <div class="wrap-input100 validate-input m-b-18" data-validate = "First Name is required">
+            <input class="input100" type="text" name="fname" placeholder="Enter First Name">
+            <span class="focus-input100"></span>
+          </div>
 
-					<div class="wrap-input100 validate-input m-b-26" data-validate="Last Name is required">
-						<input class="input100" type="text" name="lname" placeholder="Enter Last Name">
-						<span class="focus-input100"></span>
-					</div>
+          <div class="wrap-input100 validate-input m-b-26" data-validate="Last Name is required">
+            <input class="input100" type="text" name="lname" placeholder="Enter Last Name">
+            <span class="focus-input100"></span>
+          </div>
 
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Email is required">
-						<input class="input100" type="text" name="email" placeholder="Enter Valid Email">
-						<span class="focus-input100"></span>
-					</div>
+          <div class="wrap-input100 validate-input m-b-18" data-validate = "Email is required">
+            <input class="input100" type="text" name="email" placeholder="Enter Valid Email">
+            <span class="focus-input100"></span>
+          </div>
 
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Contact No. is required">
-						<input class="input100" type="text" name="contact" placeholder="Enter Contact Number">
-						<span class="focus-input100"></span>
-					</div>
+          <div class="wrap-input100 validate-input m-b-18" data-validate = "Contact No. is required">
+            <input class="input100" type="text" name="contact" placeholder="Enter Contact Number">
+            <span class="focus-input100"></span>
+          </div>
 
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Department Name is required">
-						<input class="input100" type="text" name="dept" placeholder="Enter Department" value="CS" readonly>
-						<span class="focus-input100"></span>
-					</div>
+          <div class="wrap-input100 validate-input m-b-18" data-validate = "Department is required">
+            <input class="input100" type="text" name="dept" placeholder="Enter Department">
+            <span class="focus-input100"></span>
+          </div>
 
-					<div id="login100-form-Btn">
-						<button type="submit" class="login101-form-btn">
-							Register
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+          <div class="wrap-input100 validate-input m-b-26" data-validate="Credit is required">
+            <input class="input100" type="text" name="credit" placeholder="Credit Completed (After This Semester)">
+            <span class="focus-input100"></span>
+          </div>
+
+          <div class="wrap-input100 validate-input m-b-26" data-validate="CGPA is required">
+            <input class="input100" type="text" name="cgpa" placeholder="Enter CGPA">
+            <span class="focus-input100"></span>
+          </div>
+          
+          <div id="login100-form-Btn">
+            <button type="submit" class="login101-form-btn">
+              Register
+            </button>
+          </div>
+        </form>
+          </div>
+      </div>
+    </div>
+  </div>
     </footer>
+  </div>
 	
 	
 <!--===============================================================================================-->
