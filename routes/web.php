@@ -41,3 +41,15 @@ Route::post('/admin/unblockFaculty/{id}', 'adminFacultyAccountManage@facultyUnbl
 
 Route::get('/admin/addStudent', 'adminAddStudent@index')->name('adminAddStudent.index');
 Route::post('/admin/addStudent', 'adminAddStudent@studentRegister');
+
+Route::get('/admin/activeStudent', 'adminActiveStudentList@index')->name('activeStudentList.index');
+Route::get('/admin/inactiveStudent', 'adminInactiveStudentList@index')->name('inactiveStudentList.index');
+
+Route::get('/admin/updateStudent/{id}', 'adminStudentAccountManage@studentUpdate')->name('adminUpdateStudent');
+Route::post('/admin/updateStudent/{id}', 'adminStudentAccountManage@studentUpdateDone');
+
+Route::get('/admin/blockStudent/{id}', 'adminStudentAccountManage@studentBlock')->name('adminBlockStudent');
+Route::post('/admin/blockStudent/{id}', 'adminStudentAccountManage@studentBlockDone');
+
+Route::get('/admin/deleteStudent/{id}', 'adminStudentAccountManage@studentDelete')->name('adminDeleteStudent');
+Route::post('/admin/deleteStudent/{id}', 'adminStudentAccountManage@studentDeleteDone');
