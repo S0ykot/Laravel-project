@@ -7,9 +7,10 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Support\Facades\Hash;
+use App\Http\Requests\RegRequest;
 use App\student;
 use App\user;
+use App\verification;
 
 class RegCredentials extends Mailable
 {
@@ -30,26 +31,41 @@ class RegCredentials extends Mailable
      *
      * @return $this
      */
-    public function build(Request $req)
+    public function build(RegRequest $req)
     {
-        $password = str_random(8);
-        $student = new student();
-        $student->student_id = $req->userid;
-        $student->student_fname = $req->fname;
-        $student->student_lname = $req->lname;
-        $student->student_email = $req->email;
-        $student->student_contact = $req->contact;
-        $student->student_credit = $req->credit;
-        $student->student_cgpa = $req->cgpa;
-        $student->student_regDate = date('Y-m-d');
-        $student->student_dept = $req->dept;
-        $student->status = 0;
-        $student->save();
-        $user = new user();
-        $user->user_id_name = $req->userid;
-        $user->password = $password;
-        $user->rid = 3;
-        $user->save();
-        return $this->markdown('RegCredentials',['userid'=>$req->userid, 'password'=>$password])->from('abc@something.com')->to('mkzzidan786@gmail.com');
+        $val = $req->validated();
+        if($val==null){
+            return back()->withError($val)
+                         ->withInput();
+        }
+        else{
+            $password = str_random(8);
+            $student = new student();
+            $student->student_id = $req->userid;
+            $student->student_fname = $req->fname;
+            $student->student_lname = $req->lname;
+            $student->student_email = $req->email;
+            $student->student_contact = $req->contact;
+            $student->student_credit = $req->credit;
+            $student->student_cgpa = $req->cgpa;
+            $student->student_regDate = date('Y-m-d');
+            $student->student_dept = $req->dept;
+            $student->status = 0;
+            $student->save();
+            $user = new user();
+            $user->user_id_name = $req->userid;
+            $user->password = $password;
+            $user->rid = 3;
+            $user->save();
+            $sid = $student::where('student_id',$req->userid)->first();
+            $ver = new verification();
+            $ver->ver_fileName = $req->file('myFile')->getClientOriginalName();
+            $ver->sid = $sid->sid;
+            $ver->save();
+            $req->file('myFile')->move('upload',$req->file('myFile')->getClientOriginalName());
+            return $this->markdown('RegCredentials',['userid'=>$req->userid, 'password'=>$password])
+                        ->from('abc@something.com')
+                        ->to('mkzzidan786@gmail.com');
+        }
     }
 }

@@ -7,7 +7,7 @@
 				</span>
 			</div>
 			
-			<form class="login100-form validate-form"  style="padding-bottom: 25px" method="POST" action="{{url('/login/send')}}">
+			<form class="login100-form validate-form"  style="padding-bottom: 25px" method="POST">
 				@if(session()->has('msg'))
 			 	<div class="alert alert-warning" role="alert" style="width: 100%;padding-top:2px; padding-bottom:2px;"> 
                     <div class="panel-body">
