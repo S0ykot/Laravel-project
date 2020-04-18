@@ -73,6 +73,7 @@
                                  <td width="100px"></td>
                                  <td width="200px">
                                   <form action="" method="post" style="width: 32%">
+                                    @csrf()
                                     <input type="hidden" name="subDom_id" value="{{$subDom->subDom_id}}" style="width: 20%"><br>
                                     
                                     <button type="submit" class="btn btn-outline-info btn-sm">Apply</button>

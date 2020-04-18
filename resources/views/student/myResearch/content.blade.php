@@ -41,28 +41,28 @@
                           <td width="100px"></td>
                           <td width="200px">Group ID</td>
                           <td>:</td>
-                          <td>Demo<!-- <%=thesisResult.group_id%> --></td>
+                          <td>{{$thesis->group_id}}</td>
                           <td width="20px"></td>
                         </tr>
                        <tr>
                          <td width="100px"></td>
                          <td width="200px" style="vertical-align: top">Topic Name</td>
                          <td style="vertical-align: top">:</td>
-                         <td>Demo<!-- <%=subDomResults.subDom_name%> --></td>
+                         <td>{{$topic->subDom_name}}</td>
                          <td width="20px"></td>
                        </tr>
                        <tr>
                          <td width="100px"></td>
                          <td width="200px" style="vertical-align: top">Topic Description</td>
                          <td style="vertical-align: top">:</td>
-                         <td>Demo<!-- <%=subDomResults.subDom_desc%> --></td>
+                         <td>{{$topic->subDom_desc}}</td>
                          <td width="20px"></td>
                        </tr>
                        <tr>
                          <td width="100px"></td>
                          <td width="200px">Domain</td>
                          <td>:</td>
-                         <td>Demo<!-- <%=domainResult[0].dom_name%> --></td>
+                         <td>{{$topic->dom_name}}</td>
                          <td width="20px"></td>
                        </tr>
                        
@@ -70,32 +70,32 @@
                          <td width="100px"></td>
                          <td width="200px">Supervisor</td>
                          <td>:</td>
-                         <td>Demo<!-- <%=facultyResult[0].faculty_fname%> -->&nbsp;Demo<!-- <%=facultyResult[0].faculty_fname%> --></td>
+                         <td>{{$topic->faculty_fname}} {{$topic->faculty_fname}}</td>
                          <td width="20px"></td>
                        </tr>
-                      <!--  <%if(thesisResult.external==null){%> -->
-                      <!--   <tr>
+                      @if($thesis->external==null)
+                      <tr>
                         <td width="100px"></td>
                         <td width="200px">Supervisor</td>
                         <td>:</td>
                         <td>Not Appointed Yet</td>
                         <td width="20px"></td>
-                      </tr> -->
-                      <!-- <%}else{%> -->
+                      </tr>
+                      @else
                         <tr>
                           <td width="100px"></td>
                           <td width="200px">External</td>
                           <td>:</td>
-                          <td>Demo<!-- <%=thesisResult.external%> --></td>
+                          <td>{{$thesis->external}}</td>
                           <td width="20px"></td>
                         </tr>
-                        <!-- <%}%> -->
+                      @endif
                        
                         <tr>
                          <td width="100px"></td>
                          <td width="200px">Type</td>
                          <td>:</td>
-                         <td>Demo<!-- <%=typeResult[0].type_name%> --></td>
+                         <td>{{$topic->type_name}}</td>
                          <td width="20px"></td>
                        </tr>
           
@@ -105,7 +105,7 @@
                         <td>:</td>
                         <td>
                           <div class="progress" style="height: 20px; margin-top: 1px">
-                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%; height: 100%">75%</div>
+                            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: {{$thesis->thesis_progress.'%'}}; height: 100%">{{$thesis->thesis_progress}}%</div>
                           </div>
                         </td>
                         <td width="20px"></td>
