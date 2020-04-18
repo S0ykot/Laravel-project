@@ -1,4 +1,4 @@
- @extends('student/ParentLayout/header')
+ @extends('student/topics/available/header')
 
  @section('home')
  <div class="page-header row no-gutters py-4" style="margin-left: 10px">
@@ -39,7 +39,7 @@
                                  <td style="font-size: 14px">{{$s->type_name}}</td>
                                  <td style="width: 2%"></td>
                                  <td>
-                                     <button class="btn btn-outline-info btn-sm" value="<%=user[i].subDom_id%>" onclick="goTo(12)" style="padding: 0 5px "><i class="fas fa-eye"></i></button>
+                                     <button class="btn btn-outline-info btn-sm" style="padding: 0 7px "><a href="{{route('topicDetails',$s->subDom_id)}}"><i class="fas fa-eye"></i></a></button>
                                  </td>
                                  <td style="width: 5%"></td>
                              </tr>

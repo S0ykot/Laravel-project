@@ -21,7 +21,13 @@ class studentTopicsWindow extends Controller
     	return view('student.topics.Available.content')->with(['subDom'=>$subDom]);
     }
 
-    public function topicDetails(){
-    	return view('student.topics.Details.content');
+    public function topicDetails(Request $req, $id){
+    	$subDom = DB::table('sub_domain')
+    				->join('domain_research','sub_domain.dom_id','=','domain_research.dom_id')
+    				->join('faculty','sub_domain.fid','=','faculty.fid')
+    				->join('thesis_type','sub_domain.type_id','=','thesis_type.type_id')
+    				->where('subDom_id',$id)
+    				->first();
+    	return view('student.topics.Details.content')->with(['subDom'=>$subDom]);
     }
 }

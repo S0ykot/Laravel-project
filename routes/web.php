@@ -30,8 +30,8 @@ Route::group(['middleware'=>['sess']],function(){
 	Route::get('/student/research', 'studentResearch@index')->name('studentResearch');
 
 	Route::get('/student/availableTopics', 'studentTopicsWindow@index')->name('studentTopicsWindow');
-
-	Route::get('/student/topic/details/{id}', 'studentTopicsWindow@topicDetails')->name('topicDetails');
+	
+	Route::get('/student/topicDetails/{id}', 'studentTopicsWindow@topicDetails')->name('topicDetails');
 
 	Route::get('/student/file/upload', 'studentFile@uploadIndex')->name('file.upload');
 
