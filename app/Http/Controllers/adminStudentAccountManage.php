@@ -71,4 +71,20 @@ class adminStudentAccountManage extends Controller
             return redirect()->route('adminDeleteStudent.index', $id);
         }
     }
+
+
+    public function studentUnblock($id){
+        
+        $student = student::all()->where('sid', $id)->first();
+        return view('admin.adminStudentOperation.unblock', $student);
+    }
+
+
+    public function studentUnblockDone($id, Request $req){
+        if(DB::table('student')->where('sid', $id)->update(['status' => 1])){
+            return redirect()->route('inactiveStudentList.index');
+        }else{
+            return redirect()->route('adminUnblockStudent', $id);
+        }
+    }
 }

@@ -53,3 +53,6 @@ Route::post('/admin/blockStudent/{id}', 'adminStudentAccountManage@studentBlockD
 
 Route::get('/admin/deleteStudent/{id}', 'adminStudentAccountManage@studentDelete')->name('adminDeleteStudent');
 Route::post('/admin/deleteStudent/{id}', 'adminStudentAccountManage@studentDeleteDone');
+
+Route::get('/admin/unblockStudent/{id}', 'adminStudentAccountManage@studentUnblock')->name('adminUnblockStudent');
+Route::post('/admin/unblockStudent/{id}', 'adminStudentAccountManage@studentUnblockDone');
