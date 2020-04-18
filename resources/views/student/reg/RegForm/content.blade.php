@@ -9,70 +9,109 @@
 
 				<form class="login101-form validate-form" method="post" enctype="multipart/form-data">
 					 {{ csrf_field()}}
+					 @if($errors->has('userid'))
+					<div class="form-group validate-input m-b-18" data-validate = "This Field is Required" style="width: 100%">
+						<input class="input100 form-control" type="text" name="userid" placeholder="Academic ID" style="border-color: red">
+						<span class="focus-input100"></span>
+						<small id="emailHelp" class="form-text" style="color: red">** {{$errors->first('userid')}}</small>
+					</div>
+					@else
 					<div class="form-group validate-input m-b-18" data-validate = "This Field is Required" style="width: 100%">
 						<input class="input100 form-control" type="text" name="userid" placeholder="Academic ID" value="{{old('userid')}}">
 						<span class="focus-input100"></span>
-						@if($errors->has('userid'))
-						<small id="emailHelp" class="form-text" style="color: red">** {{$errors->first('userid')}}</small>
-						@endif
 					</div>
+					@endif
 
+					@if($errors->has('fname'))
+					<div class="form-group validate-input m-b-18" data-validate = "This Field is Required"  style="width: 100%">
+						<input class="input100 form-control" type="text" name="fname" placeholder="Enter First Name" style="border-color: red">
+						<span class="focus-input100"></span>
+						<small id="emailHelp" class="form-text" style="color: red">** {{$errors->first('fname')}}</small>	
+					</div>
+					@else
 					<div class="form-group validate-input m-b-18" data-validate = "This Field is Required"  style="width: 100%">
 						<input class="input100 form-control" type="text" name="fname" placeholder="Enter First Name" value="{{old('fname')}}">
-						<span class="focus-input100"></span>
-						@if($errors->has('fname'))
-						<small id="emailHelp" class="form-text" style="color: red">** {{$errors->first('fname')}}</small>
-						@endif
+						<span class="focus-input100"></span>	
 					</div>
+					@endif
 
+					@if($errors->has('lname'))
+					<div class="form-group validate-input m-b-18" data-validate="This Field is Required"  style="width: 100%">
+						<input class="input100 form-control" type="text" name="lname" placeholder="Enter Last Name" style="border-color: red">
+						<span class="focus-input100"></span>
+						<small id="emailHelp" class="form-text" style="color: red">** {{$errors->first('lname')}}</small>
+					</div>
+					@else
 					<div class="form-group validate-input m-b-18" data-validate="This Field is Required"  style="width: 100%">
 						<input class="input100 form-control" type="text" name="lname" placeholder="Enter Last Name" value="{{old('lname')}}">
 						<span class="focus-input100"></span>
-						@if($errors->has('lname'))
-						<small id="emailHelp" class="form-text" style="color: red">** {{$errors->first('lname')}}</small>
-						@endif
 					</div>
-
+					@endif
+			
+					@if($errors->has('email'))
 					<div class="form-group validate-input m-b-18" data-validate = "This Field is Required"   style="width: 100%">
-
+						<input class="input100 form-control" type="text" name="email" placeholder="Enter Valid Email" style="border-color: red">
+						<span class="focus-input100"></span>
+						<small id="emailHelp" class="form-text" style="color: red">** {{$errors->first('email')}}</small>
+					</div>
+					@else
+					<div class="form-group validate-input m-b-18" data-validate = "This Field is Required"   style="width: 100%">
 						<input class="input100 form-control" type="text" name="email" placeholder="Enter Valid Email" value="{{old('email')}}">
 						<span class="focus-input100"></span>
-						@if($errors->has('email'))
-						<small id="emailHelp" class="form-text" style="color: red">** {{$errors->first('email')}}</small>
-						@endif
 					</div>
+					@endif
 
+					@if($errors->has('contact'))
+					<div class="form-group validate-input m-b-18" data-validate = "This Field is Required"   style="width: 100%">
+						<input class="input100 form-control" type="text" name="contact" placeholder="Contact Number" style="border-color: red">
+						<span class="focus-input100"></span>
+						<small id="emailHelp" class="form-text" style="color: red">** {{$errors->first('contact')}}</small>
+					</div>
+					@else
 					<div class="form-group validate-input m-b-18" data-validate = "This Field is Required"   style="width: 100%">
 						<input class="input100 form-control" type="text" name="contact" placeholder="Contact Number" value="{{old('contact')}}">
 						<span class="focus-input100"></span>
-						@if($errors->has('contact'))
-						<small id="emailHelp" class="form-text" style="color: red">** {{$errors->first('contact')}}</small>
-						@endif
 					</div>
+					@endif
 
+					@if($errors->has('cgpa'))
+					<div class="form-group validate-input m-b-18" data-validate="This Field is Required" style="width: 100%">
+						<input class="input100 form-control" type="text" name="cgpa" placeholder="Enter CGPA" style="border-color: red">
+						<span class="focus-input100"></span>
+						<small id="emailHelp" class="form-text" style="color: red">** {{$errors->first('cgpa')}}</small>
+					</div>
+					@else
 					<div class="form-group validate-input m-b-18" data-validate="This Field is Required" style="width: 100%">
 						<input class="input100 form-control" type="text" name="cgpa" placeholder="Enter CGPA" value="{{old('cgpa')}}">
 						<span class="focus-input100"></span>
-						@if($errors->has('cgpa'))
-						<small id="emailHelp" class="form-text" style="color: red">** {{$errors->first('cgpa')}}</small>
-						@endif
 					</div>
+					@endif
 
+					@if($errors->has('dept'))
+					<div class="form-group validate-input m-b-18" data-validate = "This Field is Required" style="width: 100%">
+						<input class="input100 form-control" type="text" name="dept" placeholder="Enter Department" style="border-color: red">
+						<span class="focus-input100"></span>
+						<small id="emailHelp" class="form-text" style="color: red">** {{$errors->first('dept')}}</small>
+					</div>
+					@else
 					<div class="form-group validate-input m-b-18" data-validate = "This Field is Required" style="width: 100%">
 						<input class="input100 form-control" type="text" name="dept" placeholder="Enter Department" value="{{old('dept')}}">
 						<span class="focus-input100"></span>
-						@if($errors->has('dept'))
-						<small id="emailHelp" class="form-text" style="color: red">** {{$errors->first('dept')}}</small>
-						@endif
 					</div>
+					@endif
 
+					@if($errors->has('credit'))
+					<div class="form-group validate-input m-b-18" data-validate="This Field is Required" style="width: 100%">
+						<input class="input100 form-control" type="text" name="credit" placeholder="Credit Completed (After This Semester)" style="border-color: red">
+						<span class="focus-input100"></span>
+						<small id="emailHelp" class="form-text" style="color: red">** {{$errors->first('credit')}}</small>
+					</div>
+					@else
 					<div class="form-group validate-input m-b-18" data-validate="This Field is Required" style="width: 100%">
 						<input class="input100 form-control" type="text" name="credit" placeholder="Credit Completed (After This Semester)" value="{{old('credit')}}">
 						<span class="focus-input100"></span>
-						@if($errors->has('credit'))
-						<small id="emailHelp" class="form-text" style="color: red">** {{$errors->first('credit')}}</small>
-						@endif
 					</div>
+					@endif
                       <div class="panel panel-info"  style="width: 100%"> 
                            <div class="panel-body" >
                                     

@@ -24,7 +24,7 @@ class RegRequest extends FormRequest
     public function rules()
     {
         return [
-            'userid'=>['required','regex:/^[0-9][0-9]-[0-9][0-9][0-9][0-9][0-9]-[1-3]/'],
+            'userid'=>['required','regex:/^[0-9][0-9]-[0-9][0-9][0-9][0-9][0-9]-[1-3]/','unique:user,user_id_name'],
             'fname'=>['required','regex:/^([a-zA-Z ]+)(\s[a-zA-Z ]+)*$/'],
             'lname'=>['required','regex:/^([a-zA-Z ]+)(\s[a-zA-Z ]+)*$/'],
             'email'=>'required|email',
@@ -49,6 +49,7 @@ class RegRequest extends FormRequest
             'credit.required'=>"You must provide your Credit",
             'contact.required'=>"Contact Number Can't be Empty",
             'myFile.required'=>"You must attach your course index file",
+            'userid.unique'=>"This user already exists",
             'userid.regex'=>"Please Provide a Valid User Id",
             'fname.regex'=>"Please Provide a Valid Name",
             'lname.regex'=>"Please Provide a Valid Name",

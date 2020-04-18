@@ -8,6 +8,18 @@
 			</div>
 			
 			<form class="login100-form validate-form"  style="padding-bottom: 25px" method="POST">
+				@if(session()->has('regSuccess'))
+			 	<div class="alert alert-success" role="alert" style="width: 100%;padding-top:2px; padding-bottom:2px;"> 
+                    <div class="panel-body">
+                        <div class="row justify-content-sm-center justify-content-lg-center justify-content-md-center">
+                            <div class=" col-sm-auto col-lg-auto col-md-auto" style="text-align: center">
+                                <strong>{{session('regSuccess')}}</strong>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+                @endif
+                
 				@if(session()->has('msg'))
 			 	<div class="alert alert-warning" role="alert" style="width: 100%;padding-top:2px; padding-bottom:2px;"> 
                     <div class="panel-body">
