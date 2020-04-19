@@ -1,4 +1,4 @@
- @extends('student/home/header')
+ @extends('student/ParentLayout/header')
 
  @section('home')
  <!--  <%if(!error.student_fname && !error.student_lname && !error.student_dept && !error.student_cgpa && !error.student_credit){% -->

@@ -25,14 +25,16 @@ class studentResearch extends Controller
      				->join('semester','student_thesis.sem_id','=','semester.sem_id')
      				->where('student_thesis.sid', $student->sid)
      				->first();
-     	$topic = DB::table('sub_domain')
+    	if($thesis==null){
+    		return view('student.myResearch.content')->with(['thesis'=>$thesis]);
+    	}
+    	$topic = DB::table('sub_domain')
      			   ->join('research_group','sub_domain.subDom_id','=','research_group.subDom_id')
      			   ->join('faculty','sub_domain.fid','=','faculty.fid')
      			   ->join('domain_research','sub_domain.dom_id','=','domain_research.dom_id')
      			   ->join('thesis_type','sub_domain.type_id','=','thesis_type.type_id')
      			   ->where('group_id',$thesis->group_id)
      			   ->first();
-
     	return view('student.myResearch.content')->with(['thesis'=>$thesis, 'topic'=>$topic]);
     }
 }

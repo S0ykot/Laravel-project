@@ -69,23 +69,33 @@
                                  <td></td>
                                  <td width="20px"></td>
                              </tr>
+                             @if($thesis!=null)
                              <tr>
                                  <td width="100px"></td>
                                  <td width="200px">
-                                  <form action="" method="post" style="width: 32%">
-                                    @csrf()
-                                    <input type="hidden" name="subDom_id" value="{{$subDom->subDom_id}}" style="width: 20%"><br>
-                                    
-                                    <button type="submit" class="btn btn-outline-info btn-sm">Apply</button>
-                                  </form>
-                                  &emsp;&emsp;&emsp;&emsp;
-                                  <button class="btn btn-outline-danger btn-sm" style="margin-top: -58px">Back</button>
-                                  
-                                </td>
+                                     <button class="btn btn-outline-danger btn-sm">Back</button>
+                                 </td>
                                  <td></td>
                                  <td></td>
                                  <td width="20px"></td>
                              </tr>
+                             @else
+                             <tr>
+                                 <td width="100px"></td>
+                                 <td width="200px">
+                                     <form action="" method="post" style="width: 32%">
+                                         @csrf()
+                                         <input type="hidden" name="subDom_id" value="{{$subDom->subDom_id}}" style="width: 20%"><br>
+                                         <button type="submit" class="btn btn-outline-info btn-sm">Apply</button>
+                                     </form>
+                                     &emsp;&emsp;&emsp;&emsp;
+                                     <button class="btn btn-outline-danger btn-sm" style="margin-top: -58px">Back</button>
+                                 </td>
+                                 <td></td>
+                                 <td></td>
+                                 <td width="20px"></td>
+                             </tr>
+                             @endif
                          </table>
                      </div>
                  </div>
