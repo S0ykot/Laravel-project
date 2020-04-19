@@ -4,40 +4,30 @@
  <div class="page-header row no-gutters py-4" style="margin-left: 10px;">
      <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
          <span class="text-uppercase page-subtitle">Overview</span>
-         <h3 class="page-title">Available Topics</h3>
+         <h3 class="page-title">Change Password</h3>
      </div>
  </div>
  <!-- <%if(user==null){%> -->
  <div class="container">
      <div class="row justify-content-lg-center justify-content-md-center justify-content-sm-center">
-         <div class="wrap-login100 mt-4">
+         <div class="col-lg-6 mt-4" style="border:1px solid #D3D3D3; border-radius:5px; box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)">
+             <div class="row justify-content-lg-center justify-content-md-center justify-content-sm-center">
+                 <div style="width:100%; text-align:center; padding:10px; font-family:arial; font-size:25px; font-weight:bold; background-color:#D3D3D3">
+                     <label for="title"><strong>Change Password</strong></label>
+                 </div>
+             </div>
              <form class="login100-form validate-form" style="padding-bottom: 25px" method="POST">
+                @csrf()
                  <!-- if(.......) -->
-                 <div class="alert alert-danger" role="alert" style="width: 100%;">
+                 <div class="alert alert-danger mt-2 mb-2" role="alert" style="width: 100%;">
                      <div class="panel-body">
                          <div class="row justify-content-sm-center justify-content-lg-center justify-content-md-center">
                              <div class=" col-sm-auto col-lg-auto col-md-auto" style="text-align: center">
-                                 <strong>Invalid Request</strong>
+                                 <strong></strong>
                              </div>
                          </div>
                      </div>
                  </div>
-                 <!-- else if(.......) -->
-                 <!-- <div class="panel panel-info" style="width: 100%"> 
-                          <div class="panel-body" >
-                                   
-                                  <div class="form-group" >
-                                      <div class="col-md-9" >
-                                          <center>
-                                            <span style="color: red; padding-left: 95px;">Inactive Account</span>
-                                          </center>
-                                      </div>
-                                  </div>
-                           </div>
-                      </div> -->
-                 <!-- else -->
-                 <!-- <div></div> -->
-                 <!-- end -->
 
                  <div class="form-group validate-input m-b-26" data-validate="This Field is Required" style="width: 100%">
                      <input class="input100 form-control" type="password" name="oldPass" placeholder="Enter Current Password">
@@ -47,13 +37,13 @@
 
                  <div class="form-group validate-input m-b-18" data-validate="This Field is Required" style="width: 100%">
 
-                     <input class="input100 form-control" type="password" name="newPass" placeholder="Enter New Password" value="">
+                     <input class="input100 form-control" type="password" name="newPass" placeholder="Enter New Password">
                      <span class="focus-input100"></span>
                  </div>
 
                  <div class="form-group validate-input m-b-18" data-validate="This Field is Required" style="width: 100%">
 
-                     <input class="input100 form-control" type="password" name="conPass" placeholder="Confirm New Password" value="">
+                     <input class="input100 form-control" type="password" name="newPass_confirmation" placeholder="Confirm New Password">
                      <span class="focus-input100"></span>
                  </div>
 

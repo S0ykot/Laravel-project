@@ -39,6 +39,7 @@ Route::group(['middleware'=>['sess']],function(){
 	Route::get('/student/file/download', 'studentFile@downloadIndex')->name('file.download');
 
 	Route::get('/student/passwordChange', 'studentPassword@index')->name('studentPassword');
+	Route::post('/student/passwordChange', 'studentPassword@update');
 
 	Route::get('/logout', 'logout@index');
 
