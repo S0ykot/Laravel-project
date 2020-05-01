@@ -91,31 +91,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminStudentBlock">
-                  <i class="material-icons">table_chart</i>
-                  <span>Block Student</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="/AdminStudentUnblock">
-                  <i class="material-icons">table_chart</i>
-                  <span>Unblock Student</span>
-                </a>
-              </li>
-               <li class="nav-item">
-                <a class="nav-link " href="/AdminTeacherBlock">
-                  <i class="material-icons">table_chart</i>
-                  <span>Block Faculty</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="/AdminTeacherUnblock">
-                  <i class="material-icons">table_chart</i>
-                  <span>Unblock Faculty</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="/AdminSemesterAdd">
+                <a class="nav-link " href="{{route('adminAddSemester.index')}}">
                   <i class="material-icons">note_add</i>
                   <span>Add Semester</span>
                 </a>
