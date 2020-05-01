@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Confirmation</title>
+    <title>Student Approval</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -12,8 +12,42 @@
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="/styles/shards-dashboards.1.1.0.min.css">
     <link rel="stylesheet" href="/styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script type="text/javascript">
+        function download(value){
+        window.location='http://localhost:3000/AdminStudentApproval/'+value;
+        }
+    </script>
   </head>
   <body class="h-100">
+    <!-- <div class="color-switcher animated">
+      <h5>Accent Color</h5>
+      <ul class="accent-colors">
+        <li class="accent-primary active" data-color="primary">
+          <i class="material-icons">check</i>
+        </li>
+        <li class="accent-secondary" data-color="secondary">
+          <i class="material-icons">check</i>
+        </li>
+        <li class="accent-success" data-color="success">
+          <i class="material-icons">check</i>
+        </li>
+        <li class="accent-info" data-color="info">
+          <i class="material-icons">check</i>
+        </li>
+        <li class="accent-warning" data-color="warning">
+          <i class="material-icons">check</i>
+        </li>
+        <li class="accent-danger" data-color="danger">
+          <i class="material-icons">check</i>
+        </li>
+      </ul>
+      <div class="close">
+        <i class="material-icons">close</i>
+      </div>
+    </div>
+    <div class="color-switcher-toggle animated pulse infinite">
+      <i class="material-icons">settings</i>
+    </div> -->
     <div class="container-fluid">
       <div class="row">
         <!-- Main Sidebar -->
@@ -179,14 +213,14 @@
             <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
               <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
                 <div class="input-group input-group-seamless ml-3">
-                  <!-- <div class="input-group-prepend">
+                  <div class="input-group-prepend">
                     <div class="input-group-text">
                       <i class="fas fa-search"></i>
                     </div>
-                  </div> -->
-                  <input class="navbar-search form-control" type="text" placeholder="" readonly aria-label="Search"> </div>
+                  </div>
+                  <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
               </form>
-              <ul class="navbar-nav border-left flex-row">
+              <ul class="navbar-nav border-left flex-row ">
                 <!-- <li class="nav-item border-right dropdown notifications">
                   <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="nav-link-icon__wrapper">
@@ -250,7 +284,7 @@
             <div class="page-header row no-gutters py-4">
               <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                 <span class="text-uppercase page-subtitle">Overview</span>
-                <h3 class="page-title">Student Unblock Confirmation</h3>
+                <h3 class="page-title">Student Approval</h3>
               </div>
             </div>
             <!-- End Page Header -->
@@ -262,82 +296,100 @@
                     <h6 class="m-0">Active Users</h6>
                   </div> -->
                   <div class="card-body p-0 pb-3 text-center">
-                    
-                  <table class="table mb-0">
-                    <thead class="bg-light">
-                      <tr>
-                        <th scope="col" class="border-0" style="color: DodgerBlue;">Criterion</th>
-                        <th scope="col" class="border-0" style="color: DodgerBlue;">Information</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-
-                      <tr>
-                        <td>Student ID</td>
-                        <td>{{$student_id}}</td>
-                      </tr>
-
-                      <tr>
-                        <td>First Name</td>
-                        <td>{{$student_fname}}</td>
-                      </tr>
-
-                      <tr>
-                        <td>Last Name</td>
-                        <td>{{$student_lname}}</td>
-                      </tr>
-
-                      <tr>
-                        <td>Email</td>
-                        <td>{{$student_email}}</td>
-                      </tr>
-
-                      <tr>
-                        <td>Phone</td>
-                        <td>{{$student_contact}}</td>
-                      </tr>
-
-                      <tr>
-                        <td>Department</td>
-                        <td>{{$student_dept}}</td>
-                      </tr>
-
-                      <tr>
-                        <td>Credit</td>
-                        <td>{{$student_credit}}</td>
-                      </tr>
-
-                      <tr>
-                        <td>CGPA</td>
-                        <td>{{$student_cgpa}}</td>
-                      </tr>
-
-                      <tr>
-                        <td>Account Status</td>
-                        <td style="color: red;">Inactive</td>
-                        <form method="POST">
-                        {{csrf_field()}}
-                        <td><input type="text" name="id" hidden value="{{$student_id}}"></td>
-                      </tr>
-
-                      <tr>
-                        <td colspan="2"><h3 style="color: red;">Are you sure to unblock?</h3></td>
-                      </tr>
-
-                      <tr>
-                        <td colspan="2">
-                        	<input type="submit" name="submit" value="Unblock">&emsp;&emsp;&emsp;&emsp;
-                        	<a href="{{route('inactiveStudentList.index')}}"><input type="button" name="cancel" value="Cancel"></a>
-                        </td>
-                      </tr>
-                  </form>
-                    </tbody>
-                  </table>
-                
+                    <table class="table mb-0">
+                      <thead class="bg-light">
+                        <tr>
+                          <th scope="col" class="border-0">Student ID</th>
+                          <th scope="col" class="border-0">Uploaded File</th>
+                          <th scope="col" class="border-0">View Profile</th>
+                          <th scope="col" class="border-0" colspan="2">Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach ($penStudent as $key)
+                        	<tr>
+	                            <td>{{$key->student_id}}</td>
+	                            <td>
+	                            	
+                                    <a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="{{route('adminStudentFileDownload', $key->ver_fileName)}}">Download</a>
+	                            </td>
+	                            <td>
+	                               <a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="{{route('adminStudentProfile', $key->sid)}}">View</a>
+	                           </td>
+	                            <td>
+	                               <a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="{{route('adminStudentApprovalAccept', $key->sid)}}">Approve</a>
+	                           </td>
+	                            <td>
+	                               <a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="{{route('adminStudentApprovalDecline', $key->sid)}}">Decline</a> 
+	                            </td>
+                          	</tr>
+                        @endforeach
+                      </tbody>
+                    </table>
                   </div>
                 </div>
               </div>
             </div>
+            <!-- End Default Light Table -->
+            <!-- Default Dark Table -->
+           <!--  <div class="row">
+              <div class="col">
+                <div class="card card-small overflow-hidden mb-4">
+                  <div class="card-header bg-dark">
+                    <h6 class="m-0 text-white">Inactive Users</h6>
+                  </div>
+                  <div class="card-body p-0 pb-3 bg-dark text-center">
+                    <table class="table table-dark mb-0">
+                      <thead class="thead-dark">
+                        <tr>
+                          <th scope="col" class="border-bottom-0">#</th>
+                          <th scope="col" class="border-bottom-0">First Name</th>
+                          <th scope="col" class="border-bottom-0">Last Name</th>
+                          <th scope="col" class="border-bottom-0">Country</th>
+                          <th scope="col" class="border-bottom-0">City</th>
+                          <th scope="col" class="border-bottom-0">Phone</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Graham</td>
+                          <td>Brent</td>
+                          <td>Benin</td>
+                          <td>Ripabottoni</td>
+                          <td>1-512-760-9094</td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Clark</td>
+                          <td>Angela</td>
+                          <td>Estonia</td>
+                          <td>Borghetto di Vara</td>
+                          <td>1-660-850-1647</td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>Wylie</td>
+                          <td>Joseph</td>
+                          <td>Korea, North</td>
+                          <td>Guelph</td>
+                          <td>325-4351</td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Garth</td>
+                          <td>Clementine</td>
+                          <td>Indonesia</td>
+                          <td>Narcao</td>
+                          <td>722-8264</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <!-- End Default Dark Table -->
           </div>
           <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
             

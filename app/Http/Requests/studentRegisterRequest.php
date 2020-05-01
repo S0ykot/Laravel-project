@@ -24,14 +24,14 @@ class studentRegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'userid'=>'required',
-            'fname'=>'required',
-            'lname'=>'required',
-            'email'=>'required|email',
-            'contact'=>'required',
-            'credit'=>'required|numeric',
-            'cgpa'=>'required|numeric',
-            'dept'=>'required'
+            'userid'=>'required| regex:/^[0-9][0-9]-[0-9][0-9][0-9][0-9][0-9]-[1-3]/| unique:user,user_id_name',
+            'fname'=>'required| regex:/^([a-zA-Z ]+)(\s[a-zA-Z ]+)*$/',
+            'lname'=>'required| regex:/^([a-zA-Z ]+)(\s[a-zA-Z ]+)*$/',
+            'email'=>'required| email',
+            'contact'=>'required| starts_with:8801| digits:13',
+            'credit'=>'required| numeric| gt:100',
+            'cgpa'=>'required| regex:/^\d*(\.\d{2})?$/| numeric| between:2.50,4.00',
+            'dept'=>'required| alpha',
         ];
     }
 
@@ -43,8 +43,19 @@ class studentRegisterRequest extends FormRequest
             'lname.required'=>"Last name can't left empty!",
             'email.required'=>"Email can't left empty!",
             'email.email'=>"Email must be a valid email ID",
-            'contact.required'=>"Contact no can't left empty!",
-            'dept.required'=>"Department name can't left empty!"
+            'contact.required'=>"Contact no can't  leftempty!",
+            'dept.required'=>"Department name can't left empty!",
+            'userid.unique'=>"This user already exists in this system",
+            'userid.regex'=>"Please input a valid user Id",
+            'fname.regex'=>"Please input a valid first name",
+            'lname.regex'=>"Please input a valid last name",
+            'dept.alpha'=>"Please input a valid depratment name",
+            'cgpa.regex'=>"Please input a valid CGPA",
+            'credit.numeric'=>"Please input a valid credit",
+            'contact.digits'=>"Please input a valid",
+            'contact.starts_with'=>"Please input a valid contact number",
+            'cgpa.between'=>"The CGPA is out of range",
+            'credit.gt'=>"Minimum credit should be 100",
         ];
     }
 }

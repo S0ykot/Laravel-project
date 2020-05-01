@@ -24,12 +24,12 @@ class facultyRegisterRequest extends FormRequest
     public function rules()
     {
         return [
-            'userid'=>'required',
-            'fname'=>'required',
-            'lname'=>'required',
+            'userid'=>'required| regex:/^[0-9][0-9]0-9][0-9]-[0-9][0-9][0-9]-[0-9]/| unique:user,user_id_name',
+            'fname'=>'required| regex:/^([a-zA-Z ]+)(\s[a-zA-Z ]+)*$/',
+            'lname'=>'required| regex:/^([a-zA-Z ]+)(\s[a-zA-Z ]+)*$/',
             'email'=>'required|email',
-            'contact'=>'required',
-            'dept'=>'required'
+            'contact'=>'required| starts_with:8801| digits:13',
+            'dept'=>'required| alpha'
         ];
     }
 
@@ -42,7 +42,14 @@ class facultyRegisterRequest extends FormRequest
             'email.required'=>"Email can't left empty!",
             'email.email'=>"Email must be a valid email ID",
             'contact.required'=>"Contact no can't left empty!",
-            'dept.required'=>"Department name can't left empty!"
+            'dept.required'=>"Department name can't left empty!",
+            'userid.unique'=>"This user already exists in this system",
+            'userid.regex'=>"Please input a valid user Id",
+            'fname.regex'=>"Please input a valid first name",
+            'lname.regex'=>"Please input a valid last name",
+            'dept.alpha'=>"Please input a valid depratment name",
+            'contact.digits'=>"Please input a valid",
+            'contact.starts_with'=>"Please input a valid contact number",
         ];
     }
 }

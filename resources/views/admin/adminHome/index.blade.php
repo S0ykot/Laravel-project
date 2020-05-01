@@ -85,7 +85,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminStudentApproval">
+                <a class="nav-link " href="{{route('approveStudentList.index')}}">
                   <i class="material-icons">table_chart</i>
                   <span>Approve Student</span>
                 </a>

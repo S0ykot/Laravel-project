@@ -264,12 +264,18 @@
         <form method="POST" class="login101-form validate-form">
             {{ csrf_field() }}
             <center>
-                @foreach($errors->all() as $error)
-                    <h4 style="color: red;">{{$error}}</h4>
-                @endforeach
+                <table align="center">
+                    @foreach($errors->all() as $error)
+                        
+                        <tr>
+                            <td><b style="color: red;">{{$error}}</b></td>
+                        </tr>
+                        
+                    @endforeach
+                </table>
             </center>
           <div class="wrap-input100 validate-input m-b-26" data-validate="Academic Id is required">
-            <input class="input100" type="text" name="userid" placeholder="Enter Academic ID">
+            <input class="input100" type="text" name="userid" placeholder="Enter Academic ID; i.e.: XX-XXXXX-X">
             <span class="focus-input100"></span>
           </div>
 
@@ -289,7 +295,7 @@
           </div>
 
           <div class="wrap-input100 validate-input m-b-18" data-validate = "Contact No. is required">
-            <input class="input100" type="text" name="contact" placeholder="Enter Contact Number">
+            <input class="input100" type="text" name="contact" placeholder="Enter Contact Number" value="8801">
             <span class="focus-input100"></span>
           </div>
 

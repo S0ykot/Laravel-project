@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Confirmation</title>
+    <title>Student Profile</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -179,14 +179,9 @@
             <nav class="navbar align-items-stretch navbar-light flex-md-nowrap p-0">
               <form action="#" class="main-navbar__search w-100 d-none d-md-flex d-lg-flex">
                 <div class="input-group input-group-seamless ml-3">
-                  <!-- <div class="input-group-prepend">
-                    <div class="input-group-text">
-                      <i class="fas fa-search"></i>
-                    </div>
-                  </div> -->
                   <input class="navbar-search form-control" type="text" placeholder="" readonly aria-label="Search"> </div>
               </form>
-              <ul class="navbar-nav border-left flex-row">
+              <ul class="navbar-nav border-left flex-row ">
                 <!-- <li class="nav-item border-right dropdown notifications">
                   <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="nav-link-icon__wrapper">
@@ -250,7 +245,7 @@
             <div class="page-header row no-gutters py-4">
               <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                 <span class="text-uppercase page-subtitle">Overview</span>
-                <h3 class="page-title">Student Unblock Confirmation</h3>
+                <h3 class="page-title">Pending Student Profile</h3>
               </div>
             </div>
             <!-- End Page Header -->
@@ -314,26 +309,19 @@
 
                       <tr>
                         <td>Account Status</td>
+                    @if($status == 1)
+                        <td style="color: green;">Active</td>
+                    @else
                         <td style="color: red;">Inactive</td>
-                        <form method="POST">
-                        {{csrf_field()}}
-                        <td><input type="text" name="id" hidden value="{{$student_id}}"></td>
+                    @endif
                       </tr>
 
                       <tr>
-                        <td colspan="2"><h3 style="color: red;">Are you sure to unblock?</h3></td>
+                        <td colspan="2"><a href="{{route('approveStudentList.index')}}"><input type="button" name="cancel" value="Back"></a></td>
                       </tr>
-
-                      <tr>
-                        <td colspan="2">
-                        	<input type="submit" name="submit" value="Unblock">&emsp;&emsp;&emsp;&emsp;
-                        	<a href="{{route('inactiveStudentList.index')}}"><input type="button" name="cancel" value="Cancel"></a>
-                        </td>
-                      </tr>
-                  </form>
+                      
                     </tbody>
                   </table>
-                
                   </div>
                 </div>
               </div>
