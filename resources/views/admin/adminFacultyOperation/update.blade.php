@@ -263,6 +263,17 @@
 
 				<form method="POST" class="login101-form validate-form">
                     {{csrf_field()}}
+                    <center>
+                        <table align="center">
+                            @foreach($errors->all() as $error)
+                                
+                                <tr>
+                                    <td><b style="color: red;">{{$error}}</b></td>
+                                </tr>
+                                
+                            @endforeach
+                        </table>
+                    </center>
           <div class="wrap-input100 validate-input m-b-26" data-validate="Academic Id is required">
             <input class="input100" type="text" name="userid" placeholder="Enter Faculty ID" value="{{$faculty_id}}">
             <span class="focus-input100"></span>

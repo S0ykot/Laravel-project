@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html class="no-js h-100" lang="en">
 <head>
-	<title>Update Student</title>
+	<title>Update Domain</title>
 	<meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard </title>
+    <title>Dashboard</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -37,6 +37,36 @@
 <!--===============================================================================================-->
 </head>
 <body class="h-100">
+	    <!-- <div class="color-switcher animated">
+      <h5>Accent Color</h5>
+      <ul class="accent-colors">
+        <li class="accent-primary active" data-color="primary">
+          <i class="material-icons">check</i>
+        </li>
+        <li class="accent-secondary" data-color="secondary">
+          <i class="material-icons">check</i>
+        </li>
+        <li class="accent-success" data-color="success">
+          <i class="material-icons">check</i>
+        </li>
+        <li class="accent-info" data-color="info">
+          <i class="material-icons">check</i>
+        </li>
+        <li class="accent-warning" data-color="warning">
+          <i class="material-icons">check</i>
+        </li>
+        <li class="accent-danger" data-color="danger">
+          <i class="material-icons">check</i>
+        </li>
+      </ul>
+      <div class="close">
+        <i class="material-icons">close</i>
+      </div>
+    </div>
+    <div class="color-switcher-toggle animated pulse infinite">
+      <i class="material-icons">settings</i>
+    </div> -->
+
     <div class="container-fluid">
       <div class="row">
         <!-- Main Sidebar -->
@@ -196,8 +226,8 @@
           </div>
         </aside>
         <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
-              <div class="limiter">
-                <div style="margin-left: 161%;height: 20%">
+            <div class="limiter"  class="component-center">
+              <div style="margin-left: 83%;height: 20%">
         <ul>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
@@ -205,7 +235,7 @@
               <span class="d-none d-md-inline-block">Admin</span>
               </a>
               <div class="dropdown-menu dropdown-menu-small">
-                  
+                 
                       <a class="dropdown-item" href="/AdminChangePassword">
                       <i class="material-icons">&#xE7FD;</i> Change Password</a>
                       <div class="dropdown-divider"></div>
@@ -215,79 +245,48 @@
             </li>
         </ul>
       </div>
-    <div class="container-login100" style="width:150%; margin-left:40%;">
-      <div class="wrap-login101">
-        <div class="login100-form-title" style="background-image: url(/images/unnamed.jpg);">
-          <span class="login100-form-title-1">
-            Update Student
-          </span>
-        </div>
+		<div class="container-login100" style="width:900px;margin-left: 100px">
+			<div class="wrap-login101" class="text-center">
+				<div class="login100-form-title" style="background-image: url(/images/unnamed.jpg);">
+					<span class="login100-form-title-1">
+						Update Domain
+					</span>
+				</div>
 
-        <form method="POST" class="login101-form validate-form">
-            {{ csrf_field() }}
-            <center>
-                <table align="center">
-                    @foreach($errors->all() as $error)
-                        
-                        <tr>
-                            <td><b style="color: red;">{{$error}}</b></td>
-                        </tr>
-                        
-                    @endforeach
-                </table>
-            </center>
-          <div class="wrap-input100 validate-input m-b-26" data-validate="Academic Id is required">
-            <input class="input100" type="text" name="userid" placeholder="Enter Academic ID" value="{{$student_id}}">
-            <span class="focus-input100"></span>
-          </div>
+				<form method="POST" class="login101-form validate-form">
+                    {{csrf_field()}}
+                    <center>
+                        <table align="center">
+                            @foreach($errors->all() as $error)
+                                
+                                <tr>
+                                    <td><b style="color: red;">{{$error}}</b></td>
+                                </tr>
+                                
+                            @endforeach
+                        </table>
+                    </center>
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Domain name is required">
+						<input class="input100" type="text" name="name" placeholder="Enter Domain Name" value="{{$dom_name}}">
+						<span class="focus-input100"></span>
+			            
+					</div>
 
-          <div class="wrap-input100 validate-input m-b-18" data-validate = "First Name is required">
-            <input class="input100" type="text" name="fname" placeholder="Enter First Name" value="{{$student_fname}}">
-            <span class="focus-input100"></span>
-          </div>
+                    <div class="wrap-input100 validate-input m-b-26" data-validate="Domain description is required">
+                    <textarea class="input100" type="text" name="des" placeholder="Enter Domain Description" rows="10">{{$dom_desc}}</textarea>
+                    <span class="focus-input100"></span>
+                    </div>
 
-          <div class="wrap-input100 validate-input m-b-26" data-validate="Last Name is required">
-            <input class="input100" type="text" name="lname" placeholder="Enter Last Name" value="{{$student_lname}}">
-            <span class="focus-input100"></span>
-          </div>
-
-          <div class="wrap-input100 validate-input m-b-18" data-validate = "Email is required">
-            <input class="input100" type="text" name="email" placeholder="Enter Valid Email" value="{{$student_email}}">
-            <span class="focus-input100"></span>
-          </div>
-
-          <div class="wrap-input100 validate-input m-b-18" data-validate = "Contact No. is required">
-            <input class="input100" type="text" name="contact" placeholder="Enter Contact Number" value="{{$student_contact}}">
-            <span class="focus-input100"></span>
-          </div>
-
-          <div class="wrap-input100 validate-input m-b-18" data-validate = "Department is required">
-            <input class="input100" type="text" name="dept" placeholder="Enter Department" value="{{$student_dept}}">
-            <span class="focus-input100"></span>
-          </div>
-
-          <div class="wrap-input100 validate-input m-b-26" data-validate="Credit is required">
-            <input class="input100" type="text" name="credit" placeholder="Credit Completed (After This Semester)" value="{{$student_credit}}">
-            <span class="focus-input100"></span>
-          </div>
-
-          <div class="wrap-input100 validate-input m-b-26" data-validate="CGPA is required">
-            <input class="input100" type="text" name="cgpa" placeholder="Enter CGPA" value="{{$student_cgpa}}">
-            <span class="focus-input100"></span>
-          </div>
-
-          <div id="login100-form-Btn">
-            <button type="submit" class="login101-form-btn">
-              Update
-            </button>
-          </div>
-        </form>
-          </div>
-      </div>
-    </div>
-  </div>
+					<div id="login100-form-Btn">
+						<button type="submit" class="login101-form-btn">
+							Update Domain
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
     </footer>
-  </div>
 	
 	
 <!--===============================================================================================-->

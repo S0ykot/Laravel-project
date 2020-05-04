@@ -254,7 +254,18 @@
 				</div>
 
 				<form method="POST" class="login101-form validate-form">
-          {{csrf_field()}}
+                    {{csrf_field()}}
+                    <center>
+                        <table align="center">
+                            @foreach($errors->all() as $error)
+                                
+                                <tr>
+                                    <td><b style="color: red;">{{$error}}</b></td>
+                                </tr>
+                                
+                            @endforeach
+                        </table>
+                    </center>
 					<div class="wrap-input100 validate-input m-b-26" data-validate="Type name is required">
 						<input class="input100" type="text" name="name" placeholder="Enter Thesis Type Name">
 						<span class="focus-input100"></span>

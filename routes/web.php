@@ -103,5 +103,16 @@ Route::group(['middleware'=>['sess']],function(){
 	Route::post('/admin/deleteThesisType/{id}', 'adminThesisTypeList@thesisTypeDeleteDone');
 
 
+	Route::get('/admin/addDomain', 'adminAddDomain@index')->name('adminAddDomain.index');
+	Route::post('/admin/addDomain', 'adminAddDomain@addDomain');
+
+
+	Route::get('/admin/domainList', 'adminDomainList@index')->name('domainList.index');
+	Route::get('/admin/updatedomain/{id}', 'adminDomainList@domainUpdate')->name('adminUpdateDomain');
+	Route::post('/admin/updatedomain/{id}', 'adminDomainList@domainUpdateDone');
+	Route::get('/admin/deleteDomain/{id}', 'adminDomainList@domainDelete')->name('adminDeleteDomain');
+	Route::post('/admin/deleteDomain/{id}', 'adminDomainList@domainDeleteDone');
+
+
 	Route::get('/logout', 'logout@index');
 });

@@ -115,13 +115,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminDomainAdd">
+                <a class="nav-link " href="{{route('adminAddDomain.index')}}">
                   <i class="material-icons">note_add</i>
                   <span>Add Domain</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminDomainDetails">
+                <a class="nav-link " href="{{route('domainList.index')}}">
                   <i class="material-icons">note_add</i>
                   <span>Domain List</span>
                 </a>
