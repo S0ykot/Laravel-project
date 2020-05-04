@@ -85,6 +85,11 @@ Route::group(['middleware'=>['sess']],function(){
 	Route::post('/admin/addSemester', 'adminAddSemester@addSemester');
 
 
+	Route::get('/admin/semesterList', 'adminSemesterList@index')->name('semesterList.index');
+	Route::get('/admin/updateSemester/{id}', 'adminSemesterList@semesterUpdate')->name('adminUpdateSemester');
+	Route::post('/admin/updateSemester/{id}', 'adminSemesterList@semesterUpdateDone');
+	Route::get('/admin/deleteSemester/{id}', 'adminSemesterList@semesterDelete')->name('adminDeleteSemester');
+	Route::post('/admin/deleteSemester/{id}', 'adminSemesterList@semesterDeleteDone');
 
 
 	Route::get('/logout', 'logout@index');
