@@ -114,5 +114,12 @@ Route::group(['middleware'=>['sess']],function(){
 	Route::post('/admin/deleteDomain/{id}', 'adminDomainList@domainDeleteDone');
 
 
+	Route::get('/admin/addTopic', 'adminAddTopic@index')->name('adminAddTopic.index');
+	Route::post('/admin/addTopic', 'adminAddTopic@addTopic');
+
+
+	Route::get('/admin/topicList', 'adminTopicList@index')->name('topicList.index');
+
+
 	Route::get('/logout', 'logout@index');
 });
