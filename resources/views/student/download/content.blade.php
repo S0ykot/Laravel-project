@@ -33,16 +33,20 @@
                      <table class="table mb-0 table-sm table-hover table-borderless">
                          <thead class="bg-light">
                              <tr>
+                             	<th scope="col" class="border-0">#</th>
                                  <th scope="col" class="border-0" style="text-align: left; padding-left: 3%">File Name</th>
                                  <th scope="col" class="border-0">Action</th>
                              </tr>
                          </thead>
                          <tbody>
-                             @foreach($files as $file)
+                             @foreach($files as $key=>$file)
                              <tr>
+                             	<td>{{++$key}}</td>
                                  <td style="text-align: left; padding-left: 3%">{{__($file->fileName)}}</td>
                                  <td>
-                                     <button class="btn btn-outline-info btn-sm" style="padding: 0 7px " value="" onclick="download(this.value)"><i class="fas fa-download"></i></button>
+                                     <button class="btn btn-outline-info btn-sm" style="padding: 0 7px"><a href="{{route('file.downloadFile',$file->file_id)}}">
+                                         <i class="fas fa-download"></i>
+                                     </a></button>
                                  </td>
                              </tr>
                              @endforeach

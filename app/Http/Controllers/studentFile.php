@@ -9,6 +9,7 @@ use App\student;
 use App\research_group;
 use App\student_thesis;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class studentFile extends Controller
 {
@@ -29,10 +30,10 @@ class studentFile extends Controller
                     ->first();
             if($group!=null){
                 $upload = new file();
-                $upload->fileName = $req->file('myFile')->getClientOriginalName().'_'.$req->session()->get('username').'_'.random_int(100000000, 999999999);
+                $upload->fileName = $req->session()->get('username').'_'.random_int(100000000, 999999999).'_'.$req->file('myFile')->getClientOriginalName();
+                $upload->filePath = $req->file('myFile')->store('public/upload/student');
                 $upload->group_id = $group->group_id;
                 if($upload->save()){
-                    $req->file('myFile')->move('upload/student',$req->file('myFile')->getClientOriginalName().'_'.$req->session()->get('username').'_'.random_int(100000000, 999999999));
                     $req->session()->flash('uploadSuccess','File Uploaded Successfully!');
                     return view('student.upload.content');
                 }else{
@@ -62,5 +63,10 @@ class studentFile extends Controller
     		return view('student.download.content');
     	}
     	return view('student.download.content')->with(['files'=>$files]);
+    }
+
+    public function download($file){
+        $myFile = file::find($file);
+        return Storage::download($myFile->filePath, $myFile->fileName);
     }
 }
