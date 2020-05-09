@@ -35,6 +35,7 @@ Route::group(['middleware'=>['sess']],function(){
 	Route::post('/student/topicDetails/{id}', 'studentTopicsWindow@apply');
 
 	Route::get('/student/file/upload', 'studentFile@uploadIndex')->name('file.upload');
+	Route::post('/student/file/upload', 'studentFile@upload');
 
 	Route::get('/student/file/download', 'studentFile@downloadIndex')->name('file.download');
 

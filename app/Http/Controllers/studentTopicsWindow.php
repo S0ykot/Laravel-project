@@ -45,19 +45,23 @@ class studentTopicsWindow extends Controller
         $group = research_group::find($subDom_id);
         $semester = semester::where('sem_status',1)->first();
         $student = student::where('student_id', $req->session()->get('username'))->first();
+        //$studentThesis = student_thesis::where('group_id', $group->group_id)->get();
 
+        /*if(count($studentThesis)<4){*/
+        	$thesis = new student_thesis();
+	        $thesis->group_id = $group->group_id;
+	        $thesis->sid = $student->sid;
+	        $thesis->sem_id = $semester->sem_id;
+	        $thesis->subDom_id = $subDom_id;
+	        $thesis->file_id = null;
+	        $thesis->external = null;
+	        $thesis->thesis_progress = 0;
+	        $thesis->ext_status = 0;
+	        $thesis->save();
 
-        $thesis = new student_thesis();
-        $thesis->group_id = $group->group_id;
-        $thesis->sid = $student->sid;
-        $thesis->sem_id = $semester->sem_id;
-        $thesis->subDom_id = $subDom_id;
-        $thesis->file_id = null;
-        $thesis->external = null;
-        $thesis->thesis_progress = 0;
-        $thesis->ext_status = 0;
-        $thesis->save();
+	        return redirect()->route('studentResearch');
+        /*}else{
 
-        return redirect()->route('studentResearch');
+        }*/
     }
 }
