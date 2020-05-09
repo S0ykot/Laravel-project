@@ -108,8 +108,8 @@ Route::group(['middleware'=>['sess']],function(){
 
 
 	Route::get('/admin/domainList', 'adminDomainList@index')->name('domainList.index');
-	Route::get('/admin/updatedomain/{id}', 'adminDomainList@domainUpdate')->name('adminUpdateDomain');
-	Route::post('/admin/updatedomain/{id}', 'adminDomainList@domainUpdateDone');
+	Route::get('/admin/updateDomain/{id}', 'adminDomainList@domainUpdate')->name('adminUpdateDomain');
+	Route::post('/admin/updateDomain/{id}', 'adminDomainList@domainUpdateDone');
 	Route::get('/admin/deleteDomain/{id}', 'adminDomainList@domainDelete')->name('adminDeleteDomain');
 	Route::post('/admin/deleteDomain/{id}', 'adminDomainList@domainDeleteDone');
 
@@ -119,6 +119,10 @@ Route::group(['middleware'=>['sess']],function(){
 
 
 	Route::get('/admin/topicList', 'adminTopicList@index')->name('topicList.index');
+	Route::get('/admin/updateTopic/{id}', 'adminTopicList@topicUpdate')->name('adminUpdateTopic');
+	Route::post('/admin/updateTopic/{id}', 'adminTopicList@topicUpdateDone');
+	Route::get('/admin/deleteTopic/{id}', 'adminTopicList@topicDelete')->name('adminDeleteTopic');
+	Route::post('/admin/deleteTopic/{id}', 'adminTopicList@topicDeleteDone');
 
 
 	Route::get('/logout', 'logout@index');
