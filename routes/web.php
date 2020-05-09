@@ -125,5 +125,9 @@ Route::group(['middleware'=>['sess']],function(){
 	Route::post('/admin/deleteTopic/{id}', 'adminTopicList@topicDeleteDone');
 
 
+	Route::get('/admin/allocateExternal', 'adminAllocateExternal@index')->name('adminAllocateExternal.index');
+	Route::post('/admin/allocateExternal', 'adminAllocateExternal@allocate');
+
+
 	Route::get('/logout', 'logout@index');
 });

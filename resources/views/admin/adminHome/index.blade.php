@@ -139,7 +139,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminAllocateFaculty">
+                <a class="nav-link " href="{{route('adminAllocateExternal.index')}}">
                   <i class="material-icons">person</i>
                   <span>Allocate External</span>
                 </a>

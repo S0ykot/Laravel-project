@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html class="no-js h-100" lang="en">
 <head>
-	<title>Offer Topic</title>
-	<meta charset="utf-8">
+    <title>Allocate External</title>
+    <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Dashboard </title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
@@ -13,31 +13,31 @@
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="/styles/shards-dashboards.1.1.0.min.css">
     <link rel="stylesheet" href="/styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-<!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
+<!--===============================================================================================-->  
+    <link rel="icon" type="image/png" href="/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <link rel="stylesheet" type="text/css" href="/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+<!--===============================================================================================-->  
+    <link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/vendor/animsition/css/animsition.min.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
-<!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+<!--===============================================================================================-->  
+    <link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="/css/util.css">
-	<link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
 <!--===============================================================================================-->
 </head>
 <body class="h-100">
-	    <!-- <div class="color-switcher animated">
+        <!-- <div class="color-switcher animated">
       <h5>Accent Color</h5>
       <ul class="accent-colors">
         <li class="accent-primary active" data-color="primary">
@@ -245,83 +245,64 @@
             </li>
         </ul>
       </div>
-		<div class="container-login100" style="width:900px;margin-left: 100px">
-			<div class="wrap-login101" class="text-center">
-				<div class="login100-form-title" style="background-image: url(/images/unnamed.jpg);">
-					<span class="login100-form-title-1">
-						Offer Thesis / Software Project Topic
-					</span>
-				</div>
+        <div class="container-login100" style="width:900px;margin-left: 100px">
+            <div class="wrap-login101" class="text-center">
+                <div class="login100-form-title" style="background-image: url(/images/unnamed.jpg);">
+                    <span class="login100-form-title-1">
+                        Allocate External
+                    </span>
+                </div>
 
-				<form method="POST" class="login101-form validate-form">
+                <form method="POST" class="login101-form validate-form">
                     {{csrf_field()}}
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Topic name is required">
-						<textarea class="input100" type="text" name="name" placeholder="Enter Research or Software Project Name" rows="6"></textarea>
-						<span class="focus-input100"></span>
-					</div>
 
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Description is required">
-						<textarea class="input100" type="text" name="description" placeholder="Enter Research or Software Project Details" rows="10"></textarea>
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Domain is required">
-						<select class="input100" name="domain">
-              				<option value="">Select Domain</option>
-              			@foreach($domain as $key1)
-                            <option value="{{$key1['dom_id']}}">{{$key1['dom_name']}}</option>
-                        @endforeach
-            			</select>
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Supervisor is required">
-						<select class="input100" name="supervisor">
-              				<option value="">Select Supervisor</option>
-              			@foreach($teacher as $key2)
-                            <option value="{{$key2['fid']}}">{{$key2['faculty_fname'].' '.$key2['faculty_lname']}}</option>
-                        @endforeach
-            			</select>
-						<span class="focus-input100"></span>
-					</div>
-
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Type is required">
-						<select class="input100" name="type">
-                            <option value="">Select Type</option>
-                        @foreach($type as $key3)
-                            <option value="{{$key3['type_id']}}">{{$key3['type_name']}}</option>
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Group number is required">
+                        <select class="input100" name="group">
+                            <option value="">Select Group</option>
+                        @foreach($group as $key1)
+                            <option value="{{$key1['group_id']}}">{{$key1['group_id']}}</option>
                         @endforeach
                         </select>
-						<span class="focus-input100"></span>
-					</div>
+                        <span class="focus-input100"></span>
+                    </div>
 
-					<div id="login100-form-Btn">
-						<button type="submit" class="login101-form-btn">
-							Add Topic
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "External name is required">
+                        <select class="input100" name="external">
+                            <option value="">Select External</option>
+                        @foreach($teacher as $key2)
+                            <option value="{{$key2['faculty_fname'].' '.$key2['faculty_lname']}}">{{$key2['faculty_fname'].' '.$key2['faculty_lname']}}</option>
+                        @endforeach
+                        </select>
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div id="login100-form-Btn">
+                        <button type="submit" class="login101-form-btn">
+                            Allocate External
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     </footer>
-		
+        
 <!--===============================================================================================-->
-	<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="/vendor/animsition/js/animsition.min.js"></script>
+    <script src="/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="/vendor/bootstrap/js/popper.js"></script>
-	<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/vendor/bootstrap/js/popper.js"></script>
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="/vendor/select2/select2.min.js"></script>
+    <script src="/vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-	<script src="/vendor/daterangepicker/moment.min.js"></script>
-	<script src="/vendor/daterangepicker/daterangepicker.js"></script>
+    <script src="/vendor/daterangepicker/moment.min.js"></script>
+    <script src="/vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script src="/vendor/countdowntime/countdowntime.js"></script>
+    <script src="/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="/js/main.js"></script>
+    <script src="/js/main.js"></script>
 
 </body>
 </html>
