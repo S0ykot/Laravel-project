@@ -129,5 +129,9 @@ Route::group(['middleware'=>['sess']],function(){
 	Route::post('/admin/allocateExternal', 'adminAllocateExternal@allocate');
 
 
+	Route::get('/admin/thesisList', 'adminThesisList@index')->name('thesisList.index');
+	Route::get('/admin/thesisList/groupDetails/{id}', 'adminThesisList@groupDetails')->name('groupDetails');
+
+
 	Route::get('/logout', 'logout@index');
 });

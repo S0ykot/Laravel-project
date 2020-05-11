@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Dashboard </title>
+    <title>Thesis List</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -12,6 +12,14 @@
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="/styles/shards-dashboards.1.1.0.min.css">
     <link rel="stylesheet" href="/styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <style type="text/css">
+        progress {
+            text-align: center;
+        }
+        progress:after {
+            content: attr(value)'%';
+        }
+    </style>
   </head>
   <body class="h-100">
     <div class="container-fluid">
@@ -49,97 +57,109 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('adminAddFaculty.index')}}">
+                <a class="nav-link " href="/AdminTeacherReg">
                   <i class="material-icons">note_add</i>
                   <span>Add Faculty</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('activeFacultyList.index')}}">
+                <a class="nav-link " href="/AdminTeacherDetails">
                   <i class="material-icons">vertical_split</i>
-                  <span>Active Faculty List</span>
+                  <span>Faculty List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('inactiveFacultyList.index')}}">
-                  <i class="material-icons">vertical_split</i>
-                  <span>Inactive Faculty List</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="{{route('adminAddStudent.index')}}">
+                <a class="nav-link " href="/AdminStudentReg">
                   <i class="material-icons">note_add</i>
                   <span>Add Student</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('activeStudentList.index')}}">
+                <a class="nav-link " href="/AdminStudentDetails">
                   <i class="material-icons">vertical_split</i>
-                  <span>Active Student List</span>
+                  <span>Student List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('inactiveStudentList.index')}}">
-                  <i class="material-icons">vertical_split</i>
-                  <span>Inactive Student List</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="{{route('approveStudentList.index')}}">
+                <a class="nav-link " href="/AdminStudentApproval">
                   <i class="material-icons">table_chart</i>
                   <span>Approve Student</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('adminAddSemester.index')}}">
+                <a class="nav-link " href="/AdminStudentBlock">
+                  <i class="material-icons">table_chart</i>
+                  <span>Block Student</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/AdminStudentUnblock">
+                  <i class="material-icons">table_chart</i>
+                  <span>Unblock Student</span>
+                </a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link " href="/AdminTeacherBlock">
+                  <i class="material-icons">table_chart</i>
+                  <span>Block Faculty</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/AdminTeacherUnblock">
+                  <i class="material-icons">table_chart</i>
+                  <span>Unblock Faculty</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/AdminSemesterAdd">
                   <i class="material-icons">note_add</i>
                   <span>Add Semester</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('semesterList.index')}}">
+                <a class="nav-link " href="/AdminSemesterDetails">
                   <i class="material-icons">note_add</i>
                   <span>Semester List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('adminAddThesisType.index')}}">
+                <a class="nav-link " href="/AdminTypeAdd">
                   <i class="material-icons">note_add</i>
                   <span>Add Thesis Type</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('thesisTypeList.index')}}">
+                <a class="nav-link " href="/AdminTypeDetails">
                   <i class="material-icons">note_add</i>
                   <span>Thesis Type List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('adminAddDomain.index')}}">
+                <a class="nav-link " href="/AdminDomainAdd">
                   <i class="material-icons">note_add</i>
                   <span>Add Domain</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('domainList.index')}}">
+                <a class="nav-link " href="/AdminDomainDetails">
                   <i class="material-icons">note_add</i>
                   <span>Domain List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('adminAddTopic.index')}}">
+                <a class="nav-link " href="/AdminOfferTopic">
                   <i class="material-icons">table_chart</i>
                   <span>Offer Topic</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('topicList.index')}}">
+                <a class="nav-link " href="/AdminTopicDetails">
                   <i class="material-icons">vertical_split</i>
                   <span>Topic List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('adminAllocateExternal.index')}}">
+                <a class="nav-link " href="/AdminAllocateFaculty">
                   <i class="material-icons">person</i>
                   <span>Allocate External</span>
                 </a>
@@ -152,7 +172,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('thesisList.index')}}">
+                <a class="nav-link " href="/AdminThesisDetails">
                   <i class="material-icons">person</i>
                   <span>Thesis Information</span>
                 </a>
@@ -169,17 +189,17 @@
                 <div class="input-group input-group-seamless ml-3">
                   <div class="input-group-prepend">
                     <div class="input-group-text">
-                      <!-- <i class="fas fa-search"></i> -->
+                      <i class="fas fa-search"></i>
                     </div>
                   </div>
-                  <input class="navbar-search form-control" type="text" readonly> </div>
+                  <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
               </form>
               <ul class="navbar-nav border-left flex-row ">
-               <!--  <li class="nav-item border-right dropdown notifications">
+<!--                 <li class="nav-item border-right dropdown notifications">
                   <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="nav-link-icon__wrapper">
                       <i class="material-icons">&#xE7F4;</i>
-                      <span class="badge badge-pill badge-danger"></span>
+                      <span class="badge badge-pill badge-danger">2</span>
                     </div>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small" aria-labelledby="dropdownMenuLink">
@@ -216,9 +236,10 @@
                     <span class="d-none d-md-inline-block">Admin</span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
+                    
                     <a class="dropdown-item" href="/AdminChangePassword">
                       <i class="material-icons">&#xE7FD;</i> Change Password</a>
-                    <div class="dropdown-divider"></div>
+                      <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="/logout">
                       <i class="material-icons text-danger">&#xE879;</i> Logout </a>
                   </div>
@@ -231,15 +252,63 @@
               </nav>
             </nav>
           </div>
-
-          <div>
-          	<center>
-	          	<h1>Welcome Admin Panel</h1><br><br>
-	          	<h4>UserID: {{ $uid }}</h4>
-	        </center>
-          </div>
           <!-- / .main-navbar -->
+          <div class="main-content-container container-fluid px-4">
+            <!-- Page Header -->
+            <div class="page-header row no-gutters py-4">
+              <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                <span class="text-uppercase page-subtitle">Overview</span>
+                <h3 class="page-title">Thesis Details</h3>
+              </div>
+            </div>
+            <!-- End Page Header -->
+            <!-- Default Light Table -->
+            <div class="row">
+              <div class="col">
+                <div class="card card-small mb-4">
+                  <!-- <div class="card-header border-bottom">
+                    <h6 class="m-0">Active Users</h6>
+                  </div> -->
+                  <div class="card-body p-0 pb-3 text-center">
+                    <table class="table mb-0">
+                      <thead class="bg-light">
+                        <tr>
+                          <th scope="col" class="border-0">Group No</th>
+                          <th scope="col" class="border-0">Semester</th>
+                          <th scope="col" class="border-0">Topic</th>
+                          <th scope="col" class="border-0">Domain</th>
+                          <th scope="col" class="border-0">Supervisor</th>
+                          <th scope="col" class="border-0">External</th>
+                          <th scope="col" class="border-0">View Group</th>
+                          <th scope="col" class="border-0">Progress</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        @foreach($thesis as $key)
+                        	<tr>
+	                            <td>{{$key->group_id}}</td>
+	                            <td>{{$key->sem_name}}</td>
+	                            <td>{{$key->subDom_name}}</td>
+	                            <td>{{$key->dom_name}}</td>
+	                            <td>{{$key->faculty_fname.' '.$key->faculty_lname}}</td>
+	                            <td>{{$key->external}}</td>
+	                            <td>
+                                   <a style="background-color: AliceBlue;color: DodgerBlue;font-weight: bold;padding: 2px 3px;text-align: center;text-decoration: none;display: inline-block;border: 1px solid DodgerBlue;" href="{{route('groupDetails', $key->group_id)}}">View</a>
+                               </td>
+	                            <td>
+                                    <progress style="height: 5%" value="{{$key->thesis_progress}}" max="100">   
+                                </td>
+                          	</tr>
+                        @endforeach
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
+            
           </footer>
         </main>
       </div>
@@ -252,6 +321,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
     <script src="/scripts/extras.1.1.0.min.js"></script>
     <script src="/scripts/shards-dashboards.1.1.0.min.js"></script>
-    <script src="/scripts/app/app-blog-overview.1.1.0.js"></script>
   </body>
 </html>
