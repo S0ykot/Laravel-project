@@ -132,7 +132,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
               <img class="user-avatar rounded-circle mr-2" src="/images/avatars/Admin.jpg" alt="User Avatar">
-              <span class="d-none d-md-inline-block"><%=userid%></span>
+              <span class="d-none d-md-inline-block">{{Session('username')}}</span>
               </a>
               <div class="dropdown-menu dropdown-menu-small">
                   <a class="dropdown-item" href="/profile">
@@ -147,63 +147,7 @@
             </li>
         </ul>
       </div>
-		<div class="container-login100" style="width:1200px;margin-left: 225px">
-			<div class="wrap-login101" class="text-center">
-				<div class="login100-form-title" style="background-image: url(/images/unnamed.jpg);">
-					<span class="login100-form-title-1">
-						Offer Research / Software Project Topic
-					</span>
-				</div>
-
-				<form class="login101-form validate-form" method="POST">
-					<div class="wrap-input100 validate-input m-b-26" data-validate="Academic Id is required">
-						<input class="input100" type="text" name="topicName" placeholder="Enter Topic NAME">
-						<span class="focus-input100"></span>
-					</div>
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "">
-            <select id="feInputState" class="form-control" name="type">
-                <option selected value="">Select Type</option>
-                <%for(var i=0;i<type.length;i++){%>
-                <option value="<%=type[i].type_id%>"><%=type[i].type_name%></option>
-                <%}%>
-            </select>
-            <br>
-						<span class="focus-input100"></span>
-					</div>
-
-          <div class="wrap-input100 validate-input m-b-26" data-validate="Academic Id is required">
-            <select id="feInputState" class="form-control" name="domain">
-                <option selected value="">Select Domain</option>
-                <%for(var i=0;i<domain.length;i++){%>
-                  <option value="<%=domain[i].dom_id%>"><%=domain[i].dom_name%></option>
-                <%}%>
-              </select>
-            <span class="focus-input100"></span>
-          </div>
-
-          <div class="wrap-input100 validate-input m-b-18">
-            <select id="feInputState" class="form-control" name="supervisor">
-                <option selected value="<%=supervisor.fid%>"><b><%=supervisor.faculty_fname%> <%=supervisor.faculty_lname%></b></option>
-
-            </select>
-            <br>
-            <span class="focus-input100"></span>
-          </div>
-
-
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Description is required">
-						<textarea class="input100" type="text" name="topicDes" placeholder="Enter Research or Software Project Details"></textarea>
-						<span class="focus-input100"></span>
-					</div>
-
-					<div id="login100-form-Btn">
-						<button class="login101-form-btn">
-							Add Topic
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
+        @yield('content')
 	</div>
     </footer>
 		

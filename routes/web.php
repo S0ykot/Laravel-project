@@ -36,5 +36,11 @@ Route::group(['middleware'=>['sessVerify']], function(){
 
 	Route::get('/studentApproval/approve/{id}','StudentDetails@approveStudent');
 
+
+	Route::get('/topicAdd','Topic@index');
+	Route::post('/topicAdd','Topic@addTopic');
+	
+	Route::get('/viewTopic','Topic@viewTopic');
+
 });
 
