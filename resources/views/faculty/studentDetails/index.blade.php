@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Student Approval</title>
+    <title>Student List</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -16,7 +16,7 @@
       function find(){
       var key = document.getElementById('search').value;
       var xhttp = new XMLHttpRequest();
-      xhttp.open("GET", "http://localhost:3000/studentApproval/inSearch/"+key, true);
+      xhttp.open("GET", "http://localhost:3000/studentDetails/search/"+key, true);
       xhttp.send();
         xhttp.onreadystatechange = function() {
           if (this.status==404) {
@@ -33,35 +33,6 @@
     </script>
   </head>
   <body class="h-100">
-    <!-- <div class="color-switcher animated">
-      <h5>Accent Color</h5>
-      <ul class="accent-colors">
-        <li class="accent-primary active" data-color="primary">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-secondary" data-color="secondary">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-success" data-color="success">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-info" data-color="info">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-warning" data-color="warning">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-danger" data-color="danger">
-          <i class="material-icons">check</i>
-        </li>
-      </ul>
-      <div class="close">
-        <i class="material-icons">close</i>
-      </div>
-    </div>
-    <div class="color-switcher-toggle animated pulse infinite">
-      <i class="material-icons">settings</i>
-    </div> -->
     <div class="container-fluid">
       <div class="row">
         <!-- Main Sidebar -->
@@ -91,7 +62,7 @@
           <div class="nav-wrapper">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="/home">
+                <a class="nav-link active" href="/Teacherhome">
                   <i class="material-icons">edit</i>
                   <span>Dashboard</span>
                 </a>
@@ -167,7 +138,7 @@
                   <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="nav-link-icon__wrapper">
                       <i class="material-icons">&#xE7F4;</i>
-                      <span class="badge badge-pill badge-danger">2</span>
+                      <span class="badge badge-pill badge-danger"></span>
                     </div>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small" aria-labelledby="dropdownMenuLink">
@@ -201,7 +172,7 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <img class="user-avatar rounded-circle mr-2" src="/images/avatars/Admin.jpg" alt="User Avatar">
-                    <span class="d-none d-md-inline-block"><%=userid%></span>
+                    <span class="d-none d-md-inline-block">{{Session('username')}}</span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
                     <a class="dropdown-item" href="/profile">
@@ -228,72 +199,15 @@
             <div class="page-header row no-gutters py-4">
               <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
                 <span class="text-uppercase page-subtitle">Overview</span>
-                <h3 class="page-title">Student Approval</h3>
+                <h3 class="page-title">Student Details</h3>
               </div>
             </div>
-             <div class="input-group input-group-seamless ml-3">
+            <div class="input-group input-group-seamless ml-3">
               <input id="search" class="navbar-search form-control" type="text" placeholder="Search Student" aria-label="Search" onkeyup="find()"></div>
-            <!-- End Page Header -->
-            <!-- Default Light Table -->
-            <div class="row">
-              <div class="col">
-                <div class="card card-small mb-4">
-                  <!-- <div class="card-header border-bottom">
-                    <h6 class="m-0">Active Users</h6>
-                  </div> -->
-                  <div class="card-body p-0 pb-3 text-center" id="test">
-                    <table class="table mb-0">
-                      <thead class="bg-light">
-                        <tr>
-                          <th scope="col" class="border-0">Student ID</th>
-                          <th scope="col" class="border-0">First Name</th>
-                          <th scope="col" class="border-0">Last Name</th>
-                          <th scope="col" class="border-0">Email</th>
-                          <th scope="col" class="border-0">Phone</th>
-                          <th scope="col" class="border-0">CGPA</th>
-                          <th scope="col" class="border-0">Department</th>
-                          <th scope="col" class="border-0">Complete Credit</th>
-                          <th scope="col" class="border-0">Reg Date</th>
-                          <th scope="col" class="border-0">Status</th>
-                          <th scope="col" class="border-0" colspan="2">Action</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <%if(!data){%>
-                          <td colspan="11" align="center">No Data</td>
-                        <%} else {%>
-
-                            <%for(var i=0;i<data.length;i++){%>
-                            <tr>
-                              <td><a href="/studentApproval/download/<%=data[i].ver_id%>"><%=data[i].student_id%></a></td>
-                              <td><%=data[i].student_fname%></td>
-                              <td><%=data[i].student_lname%></td>
-                              <td><%=data[i].student_email%></td>
-                              <td><%=data[i].student_contact%></td>
-                              <td><%=data[i].student_cgpa%></td>
-                              <td><%=data[i].student_dept%></td>
-                              <td><%=data[i].student_credit%></td>
-                              <td><%=data[i].student_regDate%></td>
-                              <%if (data[i].status){%>
-                                <td>Active</td>
-                              <%}
-                              else {%>
-                                  <td>Inactive</td>
-                                  <%}%>
-                                <td><a href="/studentApproval/approve/<%=data[i].sid%>"><button>Approve</button></a></td>
-                            </tr>
-                            </tr>
-                            <%}%>
-                        <%}%>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <!-- End Default Light Table -->
-            <!-- Default Dark Table -->
-            <!-- End Default Dark Table -->
+              <br>
+            
+            @yield('content')
+            
           </div>
           <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
             

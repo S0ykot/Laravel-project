@@ -37,44 +37,7 @@
 <!--===============================================================================================-->
 </head>
 <body class="h-100">
-	<!-- <div class="color-switcher animated">
-      <h5>Accent Color</h5>
-      <ul class="accent-colors">
-        <li class="accent-primary active" data-color="primary">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-secondary" data-color="secondary">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-success" data-color="success">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-info" data-color="info">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-warning" data-color="warning">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-danger" data-color="danger">
-          <i class="material-icons">check</i>
-        </li>
-      </ul>
-      <div class="actions mb-4">
-          <i class="material-icons">book</i> Documentation</a>
-      </div>
-      <div class="social-wrapper">
-        <div id="social-share" data-url="https://designrevision.com/downloads/shards-dashboard-lite/" data-text="🔥 Check out Shards Dashboard Lite, a free and beautiful Bootstrap 4 admin dashboard template!" data-title="share"></div>
-        <div class="loading-overlay">
-          <div class="spinner"></div>
-        </div>
-      </div>
-      <div class="close">
-        <i class="material-icons">close</i>
-      </div>
-    </div>
-    <div class="color-switcher-toggle animated pulse infinite">
-      <i class="material-icons">settings</i>
-    </div> -->
+
     <div class="container-fluid">
       <div class="row">
         <!-- Main Sidebar -->
@@ -183,92 +146,7 @@
             </li>
         </ul>
       </div>
-    <div class="container-login100" style="width:1400px; margin-left:150px;">
-      <div class="wrap-login101">
-        <div class="login100-form-title" style="background-image: url(/images/unnamed.jpg);">
-          <span class="login100-form-title-1">
-            Add Student
-          </span>
-        </div>
-
-        <form method="POST" class="login101-form validate-form">
-          <div class="wrap-input100 validate-input m-b-26" data-validate="Academic Id is required">
-            <input class="input100" type="text" name="userId" placeholder="Enter Academic ID (XX-XXXXX-X)">
-            <span class="focus-input100"></span>
-            <%if(error.userId){%>
-                <b style="color: red;"><%= error.userId.msg%></b>
-            <%}%>
-          </div>
-
-          <div class="wrap-input100 validate-input m-b-18" data-validate = "First Name is required">
-            <input class="input100" type="text" name="fname" placeholder="Enter First Name">
-            <span class="focus-input100"></span>
-              <%if(error.fname){%>
-                <b style="color: red;"><%= error.fname.msg%></b>
-            <%}%>
-          </div>
-
-          <div class="wrap-input100 validate-input m-b-26" data-validate="Last Name is required">
-            <input class="input100" type="text" name="lname" placeholder="Enter Last Name">
-            <span class="focus-input100"></span>
-            <%if(error.lname){%>
-                <b style="color: red;"><%= error.lname.msg%></b>
-            <%}%>
-          </div>
-
-          <div class="wrap-input100 validate-input m-b-18" data-validate = "Email is required">
-            <input class="input100" type="text" name="email" placeholder="Enter Valid Email">
-            <span class="focus-input100"></span>
-            <%if(error.email){%>
-                <b style="color: red;"><%= error.email.msg%></b>
-            <%}%>
-          </div>
-
-          <div class="wrap-input100 validate-input m-b-18" data-validate = "Contact No. is required">
-            <input class="input100" type="text" name="phnNo" placeholder="Enter Contact Number">
-            <span class="focus-input100"></span>
-            <%if(error.phnNo){%>
-                <b style="color: red;"><%= error.userId.msg%></b>
-            <%}%>
-          </div>
-
-          <div class="wrap-input100 validate-input m-b-26" data-validate="CGPA is required">
-            <input class="input100" type="text" name="cgpa" placeholder="Enter CGPA">
-            <span class="focus-input100"></span>
-            <%if(error.cgpa){%>
-                <b style="color: red;"><%= error.cgpa.msg%></b>
-            <%}%>
-          </div>
-
-          <div class="wrap-input100 validate-input m-b-18" data-validate = "Department is required">
-            <input class="input100" type="text" name="dept" placeholder="Enter Department">
-            <span class="focus-input100"></span>
-            <%if(error.dept){%>
-                <b style="color: red;"><%= error.dept.msg%></b>
-            <%}%>
-          </div>
-
-          <div class="wrap-input100 validate-input m-b-26" data-validate="Credit is required">
-            <input class="input100" type="text" name="credit" placeholder="Credit Completed (After This Semester)">
-            <span class="focus-input100"></span>
-            <%if(error.credit){%>
-                <b style="color: red;"><%= error.credit.msg%></b>
-            <%}%>
-          </div>
-
-          
-
-          <div id="login100-form-Btn">
-            <button class="login101-form-btn">
-              Register
-            </button>
-          </div>
-
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
+      @yield('content')
     </footer>
   </div>
 	

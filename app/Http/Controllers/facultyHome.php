@@ -55,6 +55,61 @@ class facultyHome extends Controller
     		}
     	}
     }
+
+
+    public function changePasswordView()
+    {
+    	return view('faculty.passChange.content');
+    }
+
+
+    public function updatePassword(Request $req)
+    {
+
+    	$user = User::where('user_id_name',$req->session()->get('username'))->first();
+
+    	$validate = Validator::make($req->all(), [
+            'oldPass' => 'required',
+            'newPass' => 'required',
+            'confirmNewPass' => 'required'
+        ]);
+
+    	if ($validate->fails()) {
+    		return redirect('/changePassword')
+                        ->withErrors($validate);
+    	}
+
+    	else
+    	{
+    		if ($user->password!=$req->oldPass) {
+    			return redirect('/changePassword')
+                        ->withErrors('Current Password wrong');
+    		}
+    		else
+    		{
+    			if ($req->newPass!=$req->confirmNewPass) {
+    				return redirect('/changePassword')
+                        ->withErrors('New or Confirm Password wrong');
+    			}
+    			else
+    			{
+    				$user->password = $req->newPass;
+    				if ($user->save()) {
+    					return redirect('/logout');
+    				}
+    				else
+    				{
+    					return print("Something wrong!!");
+    				}
+    			}
+    		}
+    	}
+
+    }
+
+
+    
+
 }
 
 

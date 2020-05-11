@@ -21,9 +21,20 @@ Route::get('/logout','facultyLogout@index');
 
 Route::group(['middleware'=>['sessVerify']], function(){
 	Route::get('/home','facultyHome@index');
-	
+
 	Route::get('/profile','facultyHome@profileDetails');
 	Route::post('/profile','facultyHome@updateProfile');
+
+	Route::get('/changePassword','facultyHome@changePasswordView');
+	Route::post('/changePassword','facultyHome@updatePassword');
+
+	Route::get('/studentReg','StudentReg@studRegView');
+	Route::post('/studentReg','StudentReg@addStudent');
+
+	Route::get('/studentDetails','StudentDetails@index');
+	Route::get('/studentApproval','StudentDetails@studentApproveView');
+
+	Route::get('/studentApproval/approve/{id}','StudentDetails@approveStudent');
 
 });
 

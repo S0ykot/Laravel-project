@@ -37,35 +37,7 @@
 <!--===============================================================================================-->
 </head>
 <body class="h-100">
-	    <!-- <div class="color-switcher animated">
-      <h5>Accent Color</h5>
-      <ul class="accent-colors">
-        <li class="accent-primary active" data-color="primary">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-secondary" data-color="secondary">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-success" data-color="success">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-info" data-color="info">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-warning" data-color="warning">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-danger" data-color="danger">
-          <i class="material-icons">check</i>
-        </li>
-      </ul>
-      <div class="close">
-        <i class="material-icons">close</i>
-      </div>
-    </div>
-    <div class="color-switcher-toggle animated pulse infinite">
-      <i class="material-icons">settings</i>
-    </div> -->
+
 
     <div class="container-fluid">
       <div class="row">
@@ -160,7 +132,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
               <img class="user-avatar rounded-circle mr-2" src="/images/avatars/Admin.jpg" alt="User Avatar">
-              <span class="d-none d-md-inline-block"><%=userid%></span>
+              <span class="d-none d-md-inline-block">{{Session('username')}}</span>
               </a>
               <div class="dropdown-menu dropdown-menu-small">
                   <a class="dropdown-item" href="/TeacherProfile">
@@ -175,45 +147,7 @@
             </li>
         </ul>
       </div>
-		<div class="container-login100" style="width:900px;margin-left: 100px">
-			<div class="wrap-login101" class="text-center">
-				<div class="login100-form-title" style="background-image: url(/images/unnamed.jpg);">
-					<span class="login100-form-title-1">
-						Change Password
-					</span>
-				</div>
-
-				<form class="login101-form validate-form" method="POST">
-					<div class="wrap-input100 validate-input m-b-26" data-validate="Academic Id is required">
-						<input class="input100" type="password" name="oldPass" placeholder="Enter Old Password">
-						<span class="focus-input100"></span>
-            <%if(error.oldPass){%>
-                <b style="color: red;"><%= error.oldPass.msg%></b>
-            <%}%>
-					</div>
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Topic name is required">
-						<input class="input100" type="password" name="newPass" placeholder="Enter New Password">
-						<span class="focus-input100"></span>
-            <%if(error.newPass){%>
-                <b style="color: red;"><%= error.newPass.msg%></b>
-            <%}%>
-					</div>
-					<div class="wrap-input100 validate-input m-b-18" data-validate = "Description is required">
-						<input class="input100" type="password" name="confirmNewPass" placeholder="Enter Confirm New Password">
-						<span class="focus-input100"></span>
-            <%if(error.confirmNewPass){%>
-                <b style="color: red;"><%= error.confirmNewPass.msg%></b>
-            <%}%>
-					</div>
-
-					<div id="login100-form-Btn">
-						<button class="login101-form-btn">
-							Change
-						</button>
-					</div>
-				</form>
-			</div>
-		</div>
+		    @yield('content')
 	</div>
     </footer>
 	
