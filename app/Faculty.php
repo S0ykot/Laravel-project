@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model
+class Faculty extends Model
 {
-    protected $table = "user";
+    protected $table = "faculty";
     public $timestamps = false;
-    protected $primaryKey = 'uid';
+    protected $primaryKey = 'fid';
 }
