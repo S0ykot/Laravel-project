@@ -17,7 +17,7 @@ class StudentDetails extends Controller
 
    public function studentApproveView()
    {
-   		$student = Student::where('status','0')->get();
+   		$student = DB::select('SELECT * FROM verification,student where verification.sid=student.sid and student.status=0');
     	 return view('faculty.studentApprove.content',['details'=>$student]);
    }
 

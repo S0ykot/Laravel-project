@@ -112,7 +112,7 @@
                   <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="nav-link-icon__wrapper">
                       <i class="material-icons">&#xE7F4;</i>
-                      <span class="badge badge-pill badge-danger">2</span>
+                      <span class="badge badge-pill badge-danger"></span>
                     </div>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small" aria-labelledby="dropdownMenuLink">
@@ -146,7 +146,7 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <img class="user-avatar rounded-circle mr-2" src="/images/avatars/Admin.jpg" alt="User Avatar">
-                    <span class="d-none d-md-inline-block"><%=userid%></span>
+                    <span class="d-none d-md-inline-block">{{Session('username')}}</span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
                     <a class="dropdown-item" href="/profile">
@@ -195,15 +195,19 @@
                           <th scope="col" class="border-0">Progress</th>
                           <th scope="col" class="border-0">Semester</th>
                         </tr>
-                        <%for(var i=0;i<data.length;i++){%>
-                        <tr>
-                          <td><%=data[i].group_id%></td>
-                          <td><a href="/progressUpdate/update/<%=data[i].group_id%>"><%=data[i].subDom_name%></a></td>
-                          <td><label><%=data[i].thesis_progress%>%</label><br>
-                            <progress id="file" value="<%=data[i].thesis_progress%>" max="100"></progress></td>
-                          <td><%=data[i].sem_name%></td>
-                        </tr>
-                        <%}%>
+                        @if(count($data)==0)
+                            <td colspan="4" align="center"><b>No Group Exist</b></td>
+                        @else
+                            @for($i=0; $i< count($data); $i++)
+                            <tr>
+                              <td>{{$data[$i]->group_id}}</td>
+                              <td><a href="/progressUpdate/update/{{$data[$i]->group_id}}">{{$data[$i]->subDom_name}}</a></td>
+                              <td><label>{{$data[$i]->thesis_progress}}%</label><br>
+                                <progress id="file" value="{{$data[$i]->thesis_progress}}" max="100"></progress></td>
+                              <td>{{$data[$i]->sem_name}}</td>
+                            </tr>
+                            @endfor
+                        @endif
                       </thead>
                       <tbody>
                       </tbody>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Progress Update</title>
+    <title>Upload Files </title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -14,6 +14,35 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
   <body class="h-100">
+    <div class="color-switcher animated">
+      <h5>Accent Color</h5>
+      <ul class="accent-colors">
+        <li class="accent-primary active" data-color="primary">
+          <i class="material-icons">check</i>
+        </li>
+        <li class="accent-secondary" data-color="secondary">
+          <i class="material-icons">check</i>
+        </li>
+        <li class="accent-success" data-color="success">
+          <i class="material-icons">check</i>
+        </li>
+        <li class="accent-info" data-color="info">
+          <i class="material-icons">check</i>
+        </li>
+        <li class="accent-warning" data-color="warning">
+          <i class="material-icons">check</i>
+        </li>
+        <li class="accent-danger" data-color="danger">
+          <i class="material-icons">check</i>
+        </li>
+      </ul>
+      <div class="close">
+        <i class="material-icons">close</i>
+      </div>
+    </div>
+    <div class="color-switcher-toggle animated pulse infinite">
+      <i class="material-icons">settings</i>
+    </div>
     <div class="container-fluid">
       <div class="row">
         <!-- Main Sidebar -->
@@ -31,16 +60,23 @@
               </a>
             </nav>
           </div>
-
+          <form  class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+            <div class="input-group input-group-seamless ml-3">
+              <div class="input-group-prepend">
+                <div class="input-group-text">
+                  <i class="fas fa-search"></i>
+                </div>
+              </div>
+              <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
+          </form>
           <div class="nav-wrapper">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="/Teacherhome">
+                <a class="nav-link active" href="/home">
                   <i class="material-icons">edit</i>
                   <span>Dashboard</span>
                 </a>
               </li>
-
               <li class="nav-item">
                 <a class="nav-link " href="/studentReg">
                   <i class="material-icons">note_add</i>
@@ -84,12 +120,6 @@
                   <span>View Topic</span>
                 </a>
               </li> 
-              <li class="nav-item">
-                <a class="nav-link " href="/semesterDetails">
-                  <i class="material-icons">person</i>
-                  <span>Semester Details</span>
-                </a>
-              </li>
             </ul>
           </div>
         </aside>
@@ -112,7 +142,7 @@
                   <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="nav-link-icon__wrapper">
                       <i class="material-icons">&#xE7F4;</i>
-                      <span class="badge badge-pill badge-danger">2</span>
+                      <span class="badge badge-pill badge-danger"></span>
                     </div>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small" aria-labelledby="dropdownMenuLink">
@@ -146,7 +176,7 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <img class="user-avatar rounded-circle mr-2" src="/images/avatars/Admin.jpg" alt="User Avatar">
-                    <span class="d-none d-md-inline-block"><%=userid%></span>
+                    <span class="d-none d-md-inline-block">{{Session('username')}}</span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
                     <a class="dropdown-item" href="/profile">
@@ -154,7 +184,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/changePassword">
                       <i class="material-icons">&#xE7FD;</i> Change Password</a>
-                      <div class="dropdown-divider"></div>
+                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="/logout">
                       <i class="material-icons text-danger">&#xE879;</i> Logout </a>
                   </div>
@@ -167,67 +197,12 @@
               </nav>
             </nav>
           </div>
+
           <!-- / .main-navbar -->
-          <div class="main-content-container container-fluid px-4">
-            <!-- Page Header -->
-            <div class="page-header row no-gutters py-4">
-              <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
-                <span class="text-uppercase page-subtitle">Overview</span>
-                <h3 class="page-title">Update Progress</h3>
-              </div>
-            </div>
-            <!-- End Page Header -->
-            <!-- Default Light Table -->
-            <form method="POST">
-            <div class="row">
-              <div class="col">
-                <div class="card card-small mb-4">
-                  <!-- <div class="card-header border-bottom">
-                    <h6 class="m-0">Active Users</h6>
-                  </div> -->
-                  <div class="card-body p-0 pb-3 text-center">
-                    <table class="table mb-0">
-                       <thead class="bg-light"></thead>
-                      <thead class="bg-light">
-                        <tr>
-                          <th scope="col" class="border-0">Group ID :</th>
-                          <th scope="col" class="border-0"><%=data.group_id%></th>
-                        </tr>
-                        <tr>
-                          <th scope="col" class="border-0">Topic :</th>
-                          <th scope="col" class="border-0"><%=data.subDom_name%></th>
-                        </tr>
-                        <tr>
-                          <th scope="col" class="border-0">Semester :</th>
-                          <th scope="col" class="border-0"><%=data.sem_name%></th>
-                        </tr>
-                        <tr>
-                          <th scope="col" class="border-0">Progress :</th>
-                          <th scope="col" class="border-0"><%=data.thesis_progress%>%</th>
-                        </tr>
-                        <tr>
-                          <th>Input progress :</th>
-                          <td><input type="text" name="val" >
-                              <%if(error.val){%>
-                                    <b style="color: red;"><%= error.val.msg%></b>
-                                <%}%>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td colspan="2"><input type="submit" name="submit" value="Update"></td>
-                        </tr>
-                      </thead>
-                      <tbody>
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
-              </div>
-            </div>
-            </form>
-          </div>
-          <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
-            
+              @yield('content')
+        </main>
+      </div>
+    </div>
           </footer>
         </main>
       </div>
@@ -240,5 +215,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
     <script src="/scripts/extras.1.1.0.min.js"></script>
     <script src="/scripts/shards-dashboards.1.1.0.min.js"></script>
+    <script src="/scripts/app/app-blog-overview.1.1.0.js"></script>
   </body>
 </html>
+
+
+
+

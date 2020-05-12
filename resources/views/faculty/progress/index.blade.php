@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Upload Files </title>
+    <title>Progress Update</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -14,35 +14,6 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
   <body class="h-100">
-    <div class="color-switcher animated">
-      <h5>Accent Color</h5>
-      <ul class="accent-colors">
-        <li class="accent-primary active" data-color="primary">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-secondary" data-color="secondary">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-success" data-color="success">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-info" data-color="info">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-warning" data-color="warning">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-danger" data-color="danger">
-          <i class="material-icons">check</i>
-        </li>
-      </ul>
-      <div class="close">
-        <i class="material-icons">close</i>
-      </div>
-    </div>
-    <div class="color-switcher-toggle animated pulse infinite">
-      <i class="material-icons">settings</i>
-    </div>
     <div class="container-fluid">
       <div class="row">
         <!-- Main Sidebar -->
@@ -60,15 +31,7 @@
               </a>
             </nav>
           </div>
-          <form  class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
-            <div class="input-group input-group-seamless ml-3">
-              <div class="input-group-prepend">
-                <div class="input-group-text">
-                  <i class="fas fa-search"></i>
-                </div>
-              </div>
-              <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
-          </form>
+
           <div class="nav-wrapper">
             <ul class="nav flex-column">
               <li class="nav-item">
@@ -77,18 +40,7 @@
                   <span>Dashboard</span>
                 </a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link " href="/AdminTeacherReg">
-                  <i class="material-icons">note_add</i>
-                  <span>Add Faculty</span>
-                </a>
-              </li> -->
-              <!-- <li class="nav-item">
-                <a class="nav-link " href="/AdminTeacherDetails">
-                  <i class="material-icons">vertical_split</i>
-                  <span>Faculty List</span>
-                </a>
-              </li> -->
+
               <li class="nav-item">
                 <a class="nav-link " href="/studentReg">
                   <i class="material-icons">note_add</i>
@@ -132,6 +84,12 @@
                   <span>View Topic</span>
                 </a>
               </li> 
+              <li class="nav-item">
+                <a class="nav-link " href="/semesterDetails">
+                  <i class="material-icons">person</i>
+                  <span>Semester Details</span>
+                </a>
+              </li>
             </ul>
           </div>
         </aside>
@@ -188,7 +146,7 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <img class="user-avatar rounded-circle mr-2" src="/images/avatars/Admin.jpg" alt="User Avatar">
-                    <span class="d-none d-md-inline-block"><%= name%></span>
+                    <span class="d-none d-md-inline-block">{{Session('username')}}</span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
                     <a class="dropdown-item" href="/profile">
@@ -196,7 +154,7 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/changePassword">
                       <i class="material-icons">&#xE7FD;</i> Change Password</a>
-                    <div class="dropdown-divider"></div>
+                      <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="/logout">
                       <i class="material-icons text-danger">&#xE879;</i> Logout </a>
                   </div>
@@ -209,49 +167,21 @@
               </nav>
             </nav>
           </div>
-
           <!-- / .main-navbar -->
-          <form id="EmployeeForm" class="form-horizontal" method="POST"  role="form" enctype="multipart/form-data">
+          <div class="main-content-container container-fluid px-4">
+            <!-- Page Header -->
+            <div class="page-header row no-gutters py-4">
+              <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                <span class="text-uppercase page-subtitle">Overview</span>
+                <h3 class="page-title">Student Details</h3>
+              </div>
+            </div>
+            <!-- End Page Header -->
+            <!-- Default Light Table -->
+              @yield('content')
+          </div>
           <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
-            <div id="uploadfile" style="margin-top:150px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" align="center">
-
-              <dir style="background: yellow">
-                    <dir>
-                Select Group <select name="gid">
-                  <%for(var i=0;i<data.length;i++){%>
-                  <option value="<%=data[i].group_id%>">[<%=data[i].group_id%>]__[<%=data[i].subDom_name%>]__[<%=data[i].type_name%>]</option>
-                  <%}%>
-                </select>
-              </dir>
-              </dir>
-              
-      <div class="panel panel-info" align="center">
-        <div class="panel-heading">
-          <div class="panel-title"><h5>Upload Your File</h5></div>
-          <div class="panel-title"><b style="color: red;">**Upload PDF, DOC & DOCS File Only!</b></div>
-          <div class="panel-title"><b style="color: red;">**File Max Size: 5.5MB</b></div>
-        </div>  
-        <div class="panel-body" >
-          
-            <div class="form-group">
-              <label for="file" class="col-md-3 control-label">Upload File
-              </label>
-              <div class="col-md-9">
-                        <h6 style="color: red;"><%= typeof msg != 'undefined' ? msg : '' %></h6>
-                <input type="file" class="form-control" name="file" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="col-md-offset-3 col-md-9">
-                <input type="submit" name="submit" value="Upload" class="btn btn-accent">  
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-        </main>
-      </div>
-    </div>
+            
           </footer>
         </main>
       </div>
@@ -264,10 +194,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
     <script src="/scripts/extras.1.1.0.min.js"></script>
     <script src="/scripts/shards-dashboards.1.1.0.min.js"></script>
-    <script src="/scripts/app/app-blog-overview.1.1.0.js"></script>
   </body>
 </html>
-
-
-
-

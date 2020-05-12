@@ -45,5 +45,12 @@ Route::group(['middleware'=>['sessVerify']], function(){
 	Route::get('/studentDetails/search/{id}','StudentDetails@studentSearch');
 	Route::get('/studentApproval/search/{id}','StudentDetails@inactiveStudentSearch');
 
+
+	Route::get('/progressUpdate','StudentThesis@index');
+	Route::get('/progressUpdate/update/{id}','StudentThesis@updateView');
+	Route::post('/progressUpdate/update/{id}','StudentThesis@update');
+
+	Route::get('/uploadFiles','FileUpload@index');
+	
 });
 
