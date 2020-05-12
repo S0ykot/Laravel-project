@@ -16,7 +16,7 @@
       function find(){
       var key = document.getElementById('search').value;
       var xhttp = new XMLHttpRequest();
-      xhttp.open("GET", "http://localhost:3000/studentApproval/inSearch/"+key, true);
+      xhttp.open("GET", "http://localhost:8000/studentApproval/search/"+key, true);
       xhttp.send();
         xhttp.onreadystatechange = function() {
           if (this.status==404) {
