@@ -11,13 +11,23 @@
 
               <dir style="background: yellow">
                     <dir>
-                Select Group <select name="gid">
-                  @for($i= 0; $i< count($data);$i++)
-                  <option value="{{$data[$i]->group_id}}">[{{$data[$i]->group_id}}]__[{{$data[$i]->subDom_name}}]__[{{$data[$i]->type_name}}]</option>
-                  @endfor
+                <div>
+                	Select Semester ::<select name="sem" id="sem" onchange="find()">
+                		<option value="">Select Semester</option>
+                		@for($i= 0; $i< count($sem);$i++)
+                			<option value="{{$sem[$i]->sem_id}}">{{$sem[$i]->sem_name}}</option>
+                		@endfor
+                	</select>
+                </div>
+                <br>
+                <div id='grp'>
+                	Select Group :: <select name="gid">
+                  <option value="0">Select Group</option>
                 </select>
+                </div>
               </dir>
               </dir>
+
       <div class="panel panel-info" align="center">
         <div class="panel-heading">
           <div class="panel-title"><h5>Upload Your File</h5></div>

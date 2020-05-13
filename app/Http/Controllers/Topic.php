@@ -88,7 +88,17 @@ class Topic extends Controller
     }
 
 
+    public function viewAbotTopic(Request $req,$id)
+    {
+        $data = DB::select("Select * from student_thesis,student,semester,sub_domain,thesis_type,domain_research WHERE student.sid=student_thesis.sid and semester.sem_id=student_thesis.sem_id AND sub_domain.type_id=thesis_type.type_id AND sub_domain.dom_id=domain_research.dom_id AND group_id=?",[$id]);
 
+       $student = DB::select("Select DISTINCT student.student_id,student.student_fname,student.student_lname,student.student_email,student.student_contact from student_thesis,student,semester,sub_domain,thesis_type,domain_research WHERE student.sid=student_thesis.sid and semester.sem_id=student_thesis.sem_id AND sub_domain.type_id=thesis_type.type_id AND sub_domain.dom_id=domain_research.dom_id AND group_id=?",[$id]);
+
+       $groupFile = DB::select("Select * from file where group_id=?",[$id]);
+
+
+        return view('faculty.topicDetails.content',['data'=>$data,'data1'=>$student,'files'=>$groupFile,'id'=>$id-1]);
+    }
 
 
 }

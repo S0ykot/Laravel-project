@@ -38,9 +38,11 @@ Route::group(['middleware'=>['sessVerify']], function(){
 
 
 	Route::get('/topicAdd','Topic@index');
+	
 	Route::post('/topicAdd','Topic@addTopic');
 
 	Route::get('/viewTopic','Topic@viewTopic');
+	Route::get('/viewTopic/topicDetails/{id}','Topic@viewAbotTopic');
 
 	Route::get('/studentDetails/search/{id}','StudentDetails@studentSearch');
 	Route::get('/studentApproval/search/{id}','StudentDetails@inactiveStudentSearch');
@@ -51,6 +53,8 @@ Route::group(['middleware'=>['sessVerify']], function(){
 	Route::post('/progressUpdate/update/{id}','StudentThesis@update');
 
 	Route::get('/uploadFiles','FileUpload@index');
+
+	Route::get('/uploadFiles/sem/{id}','FileUpload@semWise');
 	
 });
 

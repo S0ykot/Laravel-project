@@ -12,6 +12,25 @@
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="/styles/shards-dashboards.1.1.0.min.css">
     <link rel="stylesheet" href="/styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script type="text/javascript">
+      function find(){
+      var key = document.getElementById('sem').value;
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", "http://localhost:8000/uploadFiles/sem/"+key, true);
+      xhttp.send();
+        xhttp.onreadystatechange = function() {
+          if (this.status==404) {
+            document.getElementById('grp').innerHTML="No Data Found";
+          }
+          else
+          {
+            if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('grp').innerHTML = this.responseText;
+          }
+          }
+        };
+    }
+    </script>
   </head>
   <body class="h-100">
     <div class="color-switcher animated">
