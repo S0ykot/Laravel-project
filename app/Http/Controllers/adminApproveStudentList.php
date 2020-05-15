@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
-use Storage;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use App\verification;
 use App\student;
@@ -29,9 +29,8 @@ class adminApproveStudentList extends Controller
 
     public function download($id){
 
-	    $file= public_path(). "/storage/upload/student/".$id;
-
-	    return Response::download($file, $id);
+	    $myFile = verification::where('ver_fileName',$id)->get();
+        return Storage::download($myFile->filePath, $myFile->ver_fileName);
 	}
 
 

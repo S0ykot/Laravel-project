@@ -17,7 +17,7 @@ class adminUploadFile extends Controller
     }
 
 
-     public function fileUpload(uploadRequest $req){
+    public function fileUpload(uploadRequest $req){
            
         $upload = new file();
         $upload->fileName = $req->session()->get('username').'_'.'Group_No.-'.$req->group_id.'_'.$req->file('file')->getClientOriginalName();
