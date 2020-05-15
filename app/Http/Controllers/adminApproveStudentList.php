@@ -29,7 +29,7 @@ class adminApproveStudentList extends Controller
 
     public function download($id){
 
-	    $file= public_path(). "/upload/student/".$id;
+	    $file= public_path(). "/storage/upload/student/".$id;
 
 	    return Response::download($file, $id);
 	}

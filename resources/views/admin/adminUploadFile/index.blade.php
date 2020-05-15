@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <!-- <title>Dashboard </title> -->
+    <title>File Upload</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -12,37 +12,17 @@
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="/styles/shards-dashboards.1.1.0.min.css">
     <link rel="stylesheet" href="/styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='/css/main.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  	<link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="/styles/shards-dashboards.1.1.0.min.css">
+  	<script src="/js/custom.js"></script>
   </head>
   <body class="h-100">
-   <!--  <div class="color-switcher animated">
-      <h5>Accent Color</h5>
-      <ul class="accent-colors">
-        <li class="accent-primary active" data-color="primary">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-secondary" data-color="secondary">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-success" data-color="success">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-info" data-color="info">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-warning" data-color="warning">
-          <i class="material-icons">check</i>
-        </li>
-        <li class="accent-danger" data-color="danger">
-          <i class="material-icons">check</i>
-        </li>
-      </ul>
-      <div class="close">
-        <i class="material-icons">close</i>
-      </div>
-    </div>
-    <div class="color-switcher-toggle animated pulse infinite">
-      <i class="material-icons">settings</i>
-    </div> -->
     <div class="container-fluid">
       <div class="row">
         <!-- Main Sidebar -->
@@ -72,116 +52,128 @@
           <div class="nav-wrapper">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="{{route('adminHome.index')}}">
+                <a class="nav-link active" href="/Adminhome">
                   <i class="material-icons">edit</i>
                   <span>Dashboard</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('adminAddFaculty.index')}}">
+                <a class="nav-link " href="/AdminTeacherReg">
                   <i class="material-icons">note_add</i>
                   <span>Add Faculty</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('activeFacultyList.index')}}">
+                <a class="nav-link " href="/AdminTeacherDetails">
                   <i class="material-icons">vertical_split</i>
-                  <span>Active Faculty List</span>
+                  <span>Faculty List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('inactiveFacultyList.index')}}">
-                  <i class="material-icons">vertical_split</i>
-                  <span>Inactive Faculty List</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="{{route('adminAddStudent.index')}}">
+                <a class="nav-link " href="/AdminStudentReg">
                   <i class="material-icons">note_add</i>
                   <span>Add Student</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('activeStudentList.index')}}">
+                <a class="nav-link " href="/AdminStudentDetails">
                   <i class="material-icons">vertical_split</i>
-                  <span>Active Student List</span>
+                  <span>Student List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('inactiveStudentList.index')}}">
-                  <i class="material-icons">vertical_split</i>
-                  <span>Inactive Student List</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="{{route('approveStudentList.index')}}">
+                <a class="nav-link " href="/AdminStudentApproval">
                   <i class="material-icons">table_chart</i>
                   <span>Approve Student</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('adminAddSemester.index')}}">
+                <a class="nav-link " href="/AdminStudentBlock">
+                  <i class="material-icons">table_chart</i>
+                  <span>Block Student</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/AdminStudentUnblock">
+                  <i class="material-icons">table_chart</i>
+                  <span>Unblock Student</span>
+                </a>
+              </li>
+               <li class="nav-item">
+                <a class="nav-link " href="/AdminTeacherBlock">
+                  <i class="material-icons">table_chart</i>
+                  <span>Block Faculty</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/AdminTeacherUnblock">
+                  <i class="material-icons">table_chart</i>
+                  <span>Unblock Faculty</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="/AdminSemesterAdd">
                   <i class="material-icons">note_add</i>
                   <span>Add Semester</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('semesterList.index')}}">
+                <a class="nav-link " href="/AdminSemesterDetails">
                   <i class="material-icons">note_add</i>
                   <span>Semester List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('adminAddThesisType.index')}}">
+                <a class="nav-link " href="/AdminTypeAdd">
                   <i class="material-icons">note_add</i>
                   <span>Add Thesis Type</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('thesisTypeList.index')}}">
+                <a class="nav-link " href="/AdminTypeDetails">
                   <i class="material-icons">note_add</i>
                   <span>Thesis Type List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('adminAddDomain.index')}}">
+                <a class="nav-link " href="/AdminDomainAdd">
                   <i class="material-icons">note_add</i>
                   <span>Add Domain</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('domainList.index')}}">
+                <a class="nav-link " href="/AdminDomainDetails">
                   <i class="material-icons">note_add</i>
                   <span>Domain List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('adminAddTopic.index')}}">
+                <a class="nav-link " href="/AdminOfferTopic">
                   <i class="material-icons">table_chart</i>
                   <span>Offer Topic</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('topicList.index')}}">
+                <a class="nav-link " href="/AdminTopicDetails">
                   <i class="material-icons">vertical_split</i>
                   <span>Topic List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('adminAllocateExternal.index')}}">
+                <a class="nav-link " href="/AdminAllocateFaculty">
                   <i class="material-icons">person</i>
                   <span>Allocate External</span>
                 </a>
               </li>
                
               <li class="nav-item">
-                <a class="nav-link " href="{{route('adminUploadFile.index')}}">
+                <a class="nav-link " href="/AdminUploadFile">
                   <i class="material-icons">person</i>
                   <span>Upload File</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{route('thesisList.index')}}">
+                <a class="nav-link " href="/AdminThesisDetails">
                   <i class="material-icons">person</i>
                   <span>Thesis Information</span>
                 </a>
@@ -198,17 +190,17 @@
                 <div class="input-group input-group-seamless ml-3">
                   <div class="input-group-prepend">
                     <div class="input-group-text">
-                      <!-- <i class="fas fa-search"></i> -->
+                      <i class="fas fa-search"></i>
                     </div>
                   </div>
-                  <input class="navbar-search form-control" type="text" readonly> </div>
+                  <input class="navbar-search form-control" type="text" placeholder="Search for something..." aria-label="Search"> </div>
               </form>
               <ul class="navbar-nav border-left flex-row ">
-               <!--  <li class="nav-item border-right dropdown notifications">
+                <!-- <li class="nav-item border-right dropdown notifications">
                   <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="nav-link-icon__wrapper">
                       <i class="material-icons">&#xE7F4;</i>
-                      <span class="badge badge-pill badge-danger"></span>
+                      <span class="badge badge-pill badge-danger">2</span>
                     </div>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small" aria-labelledby="dropdownMenuLink">
@@ -245,9 +237,10 @@
                     <span class="d-none d-md-inline-block">Admin</span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
+                    
                     <a class="dropdown-item" href="/AdminChangePassword">
                       <i class="material-icons">&#xE7FD;</i> Change Password</a>
-                    <div class="dropdown-divider"></div>
+                      <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="/logout">
                       <i class="material-icons text-danger">&#xE879;</i> Logout </a>
                   </div>
@@ -260,7 +253,55 @@
               </nav>
             </nav>
           </div>
-          @yield('index')
+          <!-- / .main-navbar -->
+	<div class="container">
+	<div class="row">
+		<div id="uploadfile" style="margin-top:150px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<div class="panel-title"><h5>Upload Your File</h5></div>
+					<div class="panel-title"><b style="color: red;">**Upload PDF, DOC & DOCS File Only!</b></div>
+					<div class="panel-title"><b style="color: red;">**File Max Size: 5.5MB</b></div>
+				</div>  
+				<div class="panel-body" >
+					<form id="EmployeeForm" class="form-horizontal" method="POST"  role="form" enctype="multipart/form-data">
+                        {{csrf_field()}}
+                        <center>
+                            <table align="center">
+                                @foreach($errors->all() as $error)
+                                    
+                                    <tr>
+                                        <td><b style="color: red;">{{$error}}</b></td>
+                                    </tr>
+                                    
+                                @endforeach
+                            </table>
+                        </center>
+						<div class="form-group">
+							<div>
+								<center>
+			            			<select name="group_id" style="width: 230px;" required>
+			              				<option value="">Select Group</option>
+			              			@foreach($group as $key)
+                                        <option value="{{$key['group_id']}}">{{$key['group_id']}}</option>
+                                    @endforeach
+			            			</select>
+			            		</center>
+		          			</div>
+							<label for="file" class="col-md-3 control-label">Upload File
+							</label>
+							<div class="col-md-9">
+								<input type="file" class="form-control" name="file" required>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-offset-3 col-md-9">
+								<input type="submit" name="submit" value="Upload" class="btn btn-accent">  
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
         </main>
       </div>
     </div>
@@ -272,6 +313,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
     <script src="/scripts/extras.1.1.0.min.js"></script>
     <script src="/scripts/shards-dashboards.1.1.0.min.js"></script>
-    <script src="/scripts/app/app-blog-overview.1.1.0.js"></script>
   </body>
 </html>

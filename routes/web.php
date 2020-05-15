@@ -133,5 +133,9 @@ Route::group(['middleware'=>['sess']],function(){
 	Route::get('/admin/thesisList/groupDetails/{id}', 'adminThesisList@groupDetails')->name('groupDetails');
 
 
+	Route::get('/admin/uploadFile', 'adminUploadFile@index')->name('adminUploadFile.index');
+	Route::post('/admin/uploadFile', 'adminUploadFile@fileUpload');
+
+
 	Route::get('/logout', 'logout@index');
 });
