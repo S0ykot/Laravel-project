@@ -62,7 +62,7 @@
           <div class="nav-wrapper">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="/Teacherhome">
+                <a class="nav-link active" href="/home">
                   <i class="material-icons">edit</i>
                   <span>Dashboard</span>
                 </a>

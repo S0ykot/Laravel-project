@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+use App\File;
+use App\Verification;
 
 class FileUpload extends Controller
 {
@@ -20,4 +24,55 @@ class FileUpload extends Controller
 
     	return view('faculty.ajaxSearch.ajaxDomainSem',['data'=>$data]);
     }
+
+    public function uploadFile(Request $req)
+    {
+        $validate = Validator::make($req->all(), [
+            'file' => 'required|mimes:pdf,doc,docx,txt|max:5600',
+            'sem' => 'required',
+            'gid' => 'required'
+        ]);
+
+        if ($validate->fails()) {
+            return redirect('/uploadFiles')
+                        ->withErrors($validate);
+        }
+        else
+        {
+            $upload = new File();
+            $upload->fileName = $req->session()->get('username').'_'.'Group_No.-'.$req->group_id.'_'.$req->file('file')->getClientOriginalName();
+        $upload->pathName = $req->file('file')->store('public/upload/faculty');
+        $upload->group_id = $req->gid;
+
+        if($upload->save()){
+
+            return redirect('/uploadFiles')
+                        ->withErrors('File upload Success');
+        }else{
+            
+            return redirect('/uploadFiles')
+                        ->withErrors("File upload failed");
+        }
+        }
+    }
+
+
+
+
+    public function downloadVer($id)
+    {
+        $file = Verification::WHERE('ver_fileName',$id)->first();
+
+
+     return Storage::download($file->pathName,$file->ver_fileName);
+    }
+
+
+    public function downloadUpFile($id)
+    {
+        $file = File::WHERE('fileName',$id)->first();
+        return Storage::download($file->pathName,$file->fileName);
+    }
+
+
 }

@@ -6,6 +6,7 @@
 
 		
 	          <form id="EmployeeForm" class="form-horizontal" method="POST"  role="form" enctype="multipart/form-data">
+              @csrf
           <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
             <div id="uploadfile" style="margin-top:150px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" align="center">
 

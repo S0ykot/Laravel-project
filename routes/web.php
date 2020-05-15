@@ -53,6 +53,12 @@ Route::group(['middleware'=>['sessVerify']], function(){
 	Route::post('/progressUpdate/update/{id}','StudentThesis@update');
 
 	Route::get('/uploadFiles','FileUpload@index');
+	
+	Route::post('/uploadFiles','FileUpload@uploadFile');
+
+	Route::get('/download/{id}','FileUpload@downloadVer');
+
+	Route::get('/viewTopic/download/{id}','FileUpload@downloadUpFile');
 
 	Route::get('/uploadFiles/sem/{id}','FileUpload@semWise');
 	
