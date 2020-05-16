@@ -12,7 +12,7 @@
                       
                     </div>
                   </div>
-                  <div class="navbar-search" style="background-color: white"> </div>
+                   <input class="navbar-search form-control" type="text" placeholder="Search by Name / Domain / Supervisor / Thesis Type..." aria-label="Search" id="abc" onkeyup="search()">
 
                   </div>
               </form>

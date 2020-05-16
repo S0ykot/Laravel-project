@@ -13,10 +13,35 @@
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="/styles/shards-dashboards.1.1.0.min.css">
     <link rel="stylesheet" href="/styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    
+    @if(session('groupMember')!=null)
+     <script>
+         function message(){
+            alert('This topic has already been booked for a group! Try Another One.');
+         }
+    </script>
+    @endif
+      <script type="text/javascript">
+        function search(){
+          var value = document.getElementById('abc').value;
+          var xhttp = new XMLHttpRequest();
+          xhttp.open("GET", "http://localhost:3000/student/availableTopics/search/"+value, true);
+          xhttp.send();
+            xhttp.onreadystatechange = function() {
+              if (this.status==404) {
+                document.getElementById('studentInfo').innerHTML='<div class="mt-4"><h3><strong>No Data Found!</h3><strong></div>';
+              }
+              else
+              {
+                if (this.readyState == 4 && this.status == 200) {
+                  document.getElementById('studentInfo').innerHTML = this.responseText;
+                }
+              }
+            };
+        }
+    </script>
 </head>
 
-<body class="h-100">
+<body class="h-100" onload="message()">
 
     <div class="container-fluid">
         <div class="row">

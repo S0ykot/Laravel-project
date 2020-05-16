@@ -45,6 +45,8 @@ Route::group(['middleware'=>['sess']],function(){
 	Route::get('/student/passwordChange', 'studentPassword@index')->name('studentPassword');
 	Route::post('/student/passwordChange', 'studentPassword@update');
 
+	Route::get('/student/availableTopics/search/{value}', 'studentTopicsWindow@search')->name('topicSearch');
+
 	Route::get('/logout', 'logout@index');
 
 	//Route::resource('user', 'UserController');
