@@ -8,6 +8,20 @@
      </div>
  </div>
  <div class="container">
+    @if($group==null)
+    <div class="row justify-content-lg-center justify-content-md-center justify-content-sm-center">
+         <div class="col-md-12 col-sm-12 col-lg-12">
+             <div class="card card-small mb-4 mt-5 pt-3">
+                 <div class="card-header border-bottom text-center">
+                     <h3 class="page-title" style="margin-bottom: 50px">{{__('You have no group! First apply for a topic to get a group.')}}</h3>
+                     <div>
+                         <button class="goToTopics btn btn-accent goHome" id="create">View Topics</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+    @else
      <div class="row justify-content-center">
          <div class="col-lg-10">
              <div class="card card-small mb-4">
@@ -47,6 +61,7 @@
      <div class="row justify-content-center">
             <button class="btn btn-sm btn-danger myResearch">Back</button>
      </div>
+@endif
  </div>
  
  @endsection

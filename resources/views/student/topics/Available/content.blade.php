@@ -1,4 +1,4 @@
- @extends('student/topics/available/header')
+ @extends('student/ParentLayout/header')
 
  @section('home')
  <div class="page-header row no-gutters py-4" style="margin-left: 10px">

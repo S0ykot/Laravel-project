@@ -41,6 +41,9 @@ class studentResearch extends Controller
     public function groupMembers(Request $req){
         $student = student::where('student_id', $req->session()->get('username'))->first();
         $group = student_thesis::where('sid',$student->sid)->first();
+        if($group==null){
+            return view('student.group.content')->with(['group'=>$group]);
+        }
         $groupMember = DB::table('student_thesis')
                           ->join('student','student.sid','=','student_thesis.sid')
                           ->where('group_id',$group->group_id)->get();
