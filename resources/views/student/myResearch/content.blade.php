@@ -118,7 +118,7 @@
                              </tr>
                              <tr>
                                  <td width="100px"></td>
-                                 <td width="230px"><button class="btn btn-sm btn-info" value="Demo" onclick="groupDetails(this.value)">Group Details</button>&emsp;<button class="btn btn-sm btn-danger goHome">Go Home</button></td>
+                                 <td width="230px"><button class="btn btn-sm btn-info"><a href="{{route('groupMembers')}}" style="color: white">Group Details</a></button>&emsp;<button class="btn btn-sm btn-danger goHome">Go Home</button></td>
                                  <td></td>
                                  <td></td>
                                  <td width="20px"></td>

@@ -37,4 +37,14 @@ class studentResearch extends Controller
      			   ->first();
     	return view('student.myResearch.content')->with(['thesis'=>$thesis, 'topic'=>$topic]);
     }
+
+    public function groupMembers(Request $req){
+        $student = student::where('student_id', $req->session()->get('username'))->first();
+        $group = student_thesis::where('sid',$student->sid)->first();
+        $groupMember = DB::table('student_thesis')
+                          ->join('student','student.sid','=','student_thesis.sid')
+                          ->where('group_id',$group->group_id)->get();
+
+        return view('student.group.content')->with(['group'=>$groupMember]);
+    }
 }

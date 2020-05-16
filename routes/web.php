@@ -29,6 +29,8 @@ Route::group(['middleware'=>['sess']],function(){
 
 	Route::get('/student/research', 'studentResearch@index')->name('studentResearch');
 
+	Route::get('/student/research/groupMembers', 'studentResearch@groupMembers')->name('groupMembers');
+
 	Route::get('/student/availableTopics', 'studentTopicsWindow@index')->name('studentTopicsWindow');
 	
 	Route::get('/student/topicDetails/{id}', 'studentTopicsWindow@topicDetails')->name('topicDetails');
