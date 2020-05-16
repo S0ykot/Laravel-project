@@ -73,7 +73,7 @@
                              <tr>
                                  <td width="100px"></td>
                                  <td width="200px">
-                                     <button class="btn btn-outline-danger btn-sm">Back</button>
+                                     <button class="goToTopics btn btn-outline-danger btn-sm">Back</button>
                                  </td>
                                  <td></td>
                                  <td></td>
@@ -89,7 +89,7 @@
                                          <button type="submit" class="btn btn-outline-info btn-sm">Apply</button>
                                      </form>
                                      &emsp;&emsp;&emsp;&emsp;
-                                     <button class="btn btn-outline-danger btn-sm" style="margin-top: -58px">Back</button>
+                                     <button class="goToTopics btn btn-outline-danger btn-sm" style="margin-top: -58px">Back</button>
                                  </td>
                                  <td></td>
                                  <td></td>

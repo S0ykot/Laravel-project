@@ -121,3 +121,7 @@
     </div>
 </form>
 @endsection
+
+@section('title')
+{{__('Registration')}}
+@endsection

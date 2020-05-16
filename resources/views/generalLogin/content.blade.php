@@ -78,3 +78,7 @@
 			</form>
 		</div>
 @endsection
+
+@section('title')
+{{__('Login')}}
+@endsection

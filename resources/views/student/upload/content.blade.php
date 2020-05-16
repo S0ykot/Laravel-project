@@ -33,14 +33,13 @@
                         <input type="file" class="form-control" name="myFile" required>
                     </div>
                 </div>
-                <div class="form-group">
-                    <!-- Button -->
-                    <div class="col-md-offset-3 col-md-9">
-                        <input type="submit" name="submit" value="Upload" class="btn btn-accent btn-sm">
-                        <button style="background-color: red; border-color: red" class="goHome btn btn-sm btn-accent">Go Home</button>
-                    </div>
-                </div>
             </form>
+            <div class="col-md-offset-3 col-md-9">
+                <input type="submit" name="submit" value="Upload" class="btn btn-accent btn-sm">
+                <button style="background-color: red; border-color: red" class="goHome btn btn-sm btn-accent">Go Home</button>
+            </div>
+            
         </div>
     </div>
-    @endsection
+</div>
+@endsection

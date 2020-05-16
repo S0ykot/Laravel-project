@@ -59,10 +59,11 @@ class RegCredentials extends Mailable
             $user->save();
             $sid = $student::where('student_id',$req->userid)->first();
             $ver = new verification();
-            $ver->ver_fileName = $req->file('myFile')->getClientOriginalName();
+            $ver->ver_fileName = $req->session()->get('username').'_'.random_int(100000000, 999999999).'_'.$req->file('myFile')->getClientOriginalName();
+            $ver->filePath = $req->file('myFile')->store('public/upload/verification');
             $ver->sid = $sid->sid;
             $ver->save();
-            $req->file('myFile')->move('upload',$req->file('myFile')->getClientOriginalName());
+            //$req->file('myFile')->move('upload',$req->file('myFile')->getClientOriginalName());
             $req->session()->flash('success', 'Registration Successful! Please Check your email for Credentials');
             return $this->markdown('RegCredentials',['userid'=>$req->userid, 'password'=>$password])
                         ->from('abc@something.com')
