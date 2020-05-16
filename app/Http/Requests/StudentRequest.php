@@ -28,7 +28,7 @@ class StudentRequest extends FormRequest
             'student_lname'=>['required','regex:/^([a-zA-Z ]+)(\s[a-zA-Z ]+)*$/'],
             'student_dept'=>'required|alpha',
             'student_cgpa'=>['required','regex:/^\d*(\.\d{2})?$/','numeric','between:2.50,4.00'],
-            'student_credit'=>'required|numeric|gt:100',
+            'student_credit'=>'required|numeric|gt:99',
             'student_contact'=>'required|digits:11|numeric|starts_with:01',
         ];
     }

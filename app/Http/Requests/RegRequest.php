@@ -30,7 +30,7 @@ class RegRequest extends FormRequest
             'email'=>'required|email',
             'dept'=>'required|alpha',
             'cgpa'=>['required','regex:/^\d*(\.\d{2})?$/','numeric','between:2.50,4.00'],
-            'credit'=>'required|numeric|gt:100',
+            'credit'=>'required|numeric|gt:99',
             'contact'=>'required|digits:11|numeric|starts_with:01',
             'myFile'=>'required|mimes:pdf,doc,docx|max:5600',
         ];

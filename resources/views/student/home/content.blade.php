@@ -11,6 +11,15 @@
      <strong>{{session('welcome')}} {{$student_lname}}!</strong>
  </div>
  @endif
+ @if(session('updateMssg')!=null)
+ <div class="alert alert-success alert-dismissible fade show mb-0 btn-danger" role="alert">
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+         <span aria-hidden="true">×</span>
+     </button>
+     <i class="fas fa-exclamation mx-2"></i>
+     <strong>{{session('updateMssg')}}</strong>
+ </div>
+ @endif
  @if(count($errors)>0)
  @if($errors->has('student_fname'))
  <div class="alert alert-danger alert-dismissible fade show mb-0 btn-danger" role="alert">

@@ -15,7 +15,7 @@ class studentHome extends Controller
         return view('student.home.content', $student);
     }
 
-    public function update(StudentRequest $request, $sid)
+    public function update(StudentRequest $request)
     {
         $val = $request->validated();
 
@@ -24,7 +24,7 @@ class studentHome extends Controller
             //print("Something wrong");
         }else{
             //echo $request->student_lname;
-            $student=student::findOrfail($sid);
+            $student=student::findOrfail($request->session()->get('sid'));
             $student->student_fname = $request->student_fname;
             $student->student_lname = $request->student_lname;
             $student->student_dept = $request->student_dept;
@@ -32,7 +32,8 @@ class studentHome extends Controller
             $student->student_cgpa = $request->student_cgpa;
             $student->student_contact = $request->student_contact;
             $student->save();
-            return redirect()->route('student.index');
+            $request->session()->flash('updateMssg', 'Update Successful!');
+            return redirect()->route('studentHome');
         }
         
 
