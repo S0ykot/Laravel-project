@@ -155,7 +155,7 @@
               </li>
                
               <li class="nav-item">
-                <a class="nav-link " href="/AdminUploadFile">
+                <a class="nav-link " href="{{route('adminUploadFile.index')}}">
                   <i class="material-icons">person</i>
                   <span>Upload File</span>
                 </a>
@@ -226,7 +226,7 @@
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
                     
-                    <a class="dropdown-item" href="/AdminChangePassword">
+                    <a class="dropdown-item" href="{{route('adminChangePassword.index')}}">
                       <i class="material-icons">&#xE7FD;</i> Change Password</a>
                       <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="/logout">

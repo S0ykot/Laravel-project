@@ -67,128 +67,116 @@
           <div class="nav-wrapper">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="/Adminhome">
+                <a class="nav-link active" href="{{route('adminHome.index')}}">
                   <i class="material-icons">edit</i>
                   <span>Dashboard</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminTeacherReg">
+                <a class="nav-link " href="{{route('adminAddFaculty.index')}}">
                   <i class="material-icons">note_add</i>
                   <span>Add Faculty</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminTeacherDetails">
+                <a class="nav-link " href="{{route('activeFacultyList.index')}}">
                   <i class="material-icons">vertical_split</i>
-                  <span>Faculty List</span>
+                  <span>Active Faculty List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminStudentReg">
+                <a class="nav-link " href="{{route('inactiveFacultyList.index')}}">
+                  <i class="material-icons">vertical_split</i>
+                  <span>Inactive Faculty List</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{{route('adminAddStudent.index')}}">
                   <i class="material-icons">note_add</i>
                   <span>Add Student</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminStudentDetails">
+                <a class="nav-link " href="{{route('activeStudentList.index')}}">
                   <i class="material-icons">vertical_split</i>
-                  <span>Student List</span>
+                  <span>Active Student List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminStudentApproval">
+                <a class="nav-link " href="{{route('inactiveStudentList.index')}}">
+                  <i class="material-icons">vertical_split</i>
+                  <span>Inactive Student List</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{{route('approveStudentList.index')}}">
                   <i class="material-icons">table_chart</i>
                   <span>Approve Student</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminStudentBlock">
-                  <i class="material-icons">table_chart</i>
-                  <span>Block Student</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="/AdminStudentUnblock">
-                  <i class="material-icons">table_chart</i>
-                  <span>Unblock Student</span>
-                </a>
-              </li>
-               <li class="nav-item">
-                <a class="nav-link " href="/AdminTeacherBlock">
-                  <i class="material-icons">table_chart</i>
-                  <span>Block Faculty</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="/AdminTeacherUnblock">
-                  <i class="material-icons">table_chart</i>
-                  <span>Unblock Faculty</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link " href="/AdminSemesterAdd">
+                <a class="nav-link " href="{{route('adminAddSemester.index')}}">
                   <i class="material-icons">note_add</i>
                   <span>Add Semester</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminSemesterDetails">
+                <a class="nav-link " href="{{route('semesterList.index')}}">
                   <i class="material-icons">note_add</i>
                   <span>Semester List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminTypeAdd">
+                <a class="nav-link " href="{{route('adminAddThesisType.index')}}">
                   <i class="material-icons">note_add</i>
                   <span>Add Thesis Type</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminTypeDetails">
+                <a class="nav-link " href="{{route('thesisTypeList.index')}}">
                   <i class="material-icons">note_add</i>
                   <span>Thesis Type List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminDomainAdd">
+                <a class="nav-link " href="{{route('adminAddDomain.index')}}">
                   <i class="material-icons">note_add</i>
                   <span>Add Domain</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminDomainDetails">
+                <a class="nav-link " href="{{route('domainList.index')}}">
                   <i class="material-icons">note_add</i>
                   <span>Domain List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminOfferTopic">
+                <a class="nav-link " href="{{route('adminAddTopic.index')}}">
                   <i class="material-icons">table_chart</i>
                   <span>Offer Topic</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminTopicDetails">
+                <a class="nav-link " href="{{route('topicList.index')}}">
                   <i class="material-icons">vertical_split</i>
                   <span>Topic List</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminAllocateFaculty">
+                <a class="nav-link " href="{{route('adminAllocateExternal.index')}}">
                   <i class="material-icons">person</i>
                   <span>Allocate External</span>
                 </a>
               </li>
                
               <li class="nav-item">
-                <a class="nav-link " href="/AdminUploadFile">
+                <a class="nav-link " href="{{route('adminUploadFile.index')}}">
                   <i class="material-icons">person</i>
                   <span>Upload File</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="/AdminThesisDetails">
+                <a class="nav-link " href="{{route('thesisList.index')}}">
                   <i class="material-icons">person</i>
                   <span>Thesis Information</span>
                 </a>
@@ -207,7 +195,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-small">
                   
-                      <a class="dropdown-item" href="/AdminChangePassword">
+                      <a class="dropdown-item" href="{{route('adminChangePassword.index')}}">
                       <i class="material-icons">&#xE7FD;</i> Change Password</a>
                       <div class="dropdown-divider"></div>
                       <a class="dropdown-item text-danger" href="/logout">

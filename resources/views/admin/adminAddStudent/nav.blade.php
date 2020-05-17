@@ -168,7 +168,7 @@
               </li>
                
               <li class="nav-item">
-                <a class="nav-link " href="/AdminUploadFile">
+                <a class="nav-link " href="{{route('adminUploadFile.index')}}">
                   <i class="material-icons">person</i>
                   <span>Upload File</span>
                 </a>
