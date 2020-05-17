@@ -61,6 +61,10 @@ Route::group(['middleware'=>['sessVerify']], function(){
 	Route::get('/viewTopic/download/{id}','FileUpload@downloadUpFile');
 
 	Route::get('/uploadFiles/sem/{id}','FileUpload@semWise');
+
+	Route::get('/semesterDetails/view/{id}','Topic@ajaxSemWiseTopic');
+	Route::get('/semesterDetails','Topic@SemWiseTopic');
+
 	
 });
 

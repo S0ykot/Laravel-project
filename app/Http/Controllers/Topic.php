@@ -100,5 +100,21 @@ class Topic extends Controller
         return view('faculty.topicDetails.content',['data'=>$data,'data1'=>$student,'files'=>$groupFile,'id'=>$id-1]);
     }
 
+    public function ajaxSemWiseTopic(Request $req,$id)
+    {
+        $faculty = Faculty::where('faculty_id',$req->session()->get('username'))->first();
+        $fid = $faculty['fid'];
+        $details = DB::select('SELECT DISTINCT sub_domain.subDom_id,sub_domain.subDom_name,thesis_type.type_name,domain_research.dom_desc,student_thesis.group_id,domain_research.dom_name FROM student_thesis,semester,sub_domain,domain_research,thesis_type WHERE semester.sem_id=student_thesis.sem_id AND sub_domain.subDom_id=student_thesis.subDom_id AND domain_research.dom_id=sub_domain.dom_id AND sub_domain.type_id=thesis_type.type_id AND sub_domain.fid=? AND semester.sem_id=? ORDER BY student_thesis.group_id
+         ASC',[$fid,$id]);
+
+         return view('faculty.ajaxSearch.ajaxSemesterDetails',['details'=>$details]);
+    }
+
+    public function SemWiseTopic()
+    {
+        
+        $data = DB::select('SELECT * from semester');
+        return view('faculty.semesterWiseTopic.content',['sem'=>$data]);
+    }
 
 }
