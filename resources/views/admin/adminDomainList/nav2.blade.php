@@ -261,7 +261,7 @@
             <!-- <div class="input-group input-group-seamless ml-3">
               <input id="search" class="navbar-search form-control" type="text" placeholder="Search Student" aria-label="Search" onkeyup="find()"></div> -->
             
-            @yield('index')
+            @yield('delete')
             
           </div>
           <footer class="main-footer d-flex p-2 px-3 bg-white border-top">

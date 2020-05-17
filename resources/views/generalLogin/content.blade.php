@@ -19,6 +19,17 @@
                      </div>
                 </div>
                 @endif
+                @if(session()->has('suc'))
+			 	<div class="alert alert-warning" role="alert" style="width: 100%;padding-top:2px; padding-bottom:2px;"> 
+                    <div class="panel-body">
+                        <div class="row justify-content-sm-center justify-content-lg-center justify-content-md-center">
+                            <div class=" col-sm-auto col-lg-auto col-md-auto" style="text-align: center">
+                                <strong>{{session('suc')}}</strong>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+                @endif
 				<!-- else if(.......) -->
 				<!-- <div class="panel panel-info" style="width: 100%"> 
 				    <div class="panel-body" >

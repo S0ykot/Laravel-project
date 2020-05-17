@@ -3,7 +3,6 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>File Upload</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -12,15 +11,25 @@
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="/styles/shards-dashboards.1.1.0.min.css">
     <link rel="stylesheet" href="/styles/extras.1.1.0.min.css">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-    <link rel='stylesheet' href='/css/main.css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  	<link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="/styles/shards-dashboards.1.1.0.min.css">
-  	<script src="/js/custom.js"></script>
+    <!-- <script type="text/javascript">
+      function find(){
+      var key = document.getElementById('search').value;
+      var xhttp = new XMLHttpRequest();
+      xhttp.open("GET", "http://localhost:8000/studentDetails/search/"+key, true);
+      xhttp.send();
+        xhttp.onreadystatechange = function() {
+          if (this.status==404) {
+            document.getElementById('test').innerHTML="No Data Found";
+          }
+          else
+          {
+            if (this.readyState == 4 && this.status == 200) {
+            document.getElementById('test').innerHTML = this.responseText;
+          }
+          }
+        };
+    }
+    </script> -->
   </head>
   <body class="h-100">
     <div class="container-fluid">
@@ -40,7 +49,7 @@
               </a>
             </nav>
           </div>
-          <form action="#" class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
+          <form  class="main-sidebar__search w-100 border-right d-sm-flex d-md-none d-lg-none">
             <div class="input-group input-group-seamless ml-3">
               <div class="input-group-prepend">
                 <div class="input-group-text">
@@ -188,7 +197,7 @@
                   <a class="nav-link nav-link-icon text-center" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <div class="nav-link-icon__wrapper">
                       <i class="material-icons">&#xE7F4;</i>
-                      <span class="badge badge-pill badge-danger">2</span>
+                      <span class="badge badge-pill badge-danger"></span>
                     </div>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small" aria-labelledby="dropdownMenuLink">
@@ -225,10 +234,9 @@
                     <span class="d-none d-md-inline-block">Admin</span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
-                    
                     <a class="dropdown-item" href="/AdminChangePassword">
                       <i class="material-icons">&#xE7FD;</i> Change Password</a>
-                      <div class="dropdown-divider"></div>
+                    <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="/logout">
                       <i class="material-icons text-danger">&#xE879;</i> Logout </a>
                   </div>
@@ -242,54 +250,23 @@
             </nav>
           </div>
           <!-- / .main-navbar -->
-	<div class="container">
-	<div class="row">
-		<div id="uploadfile" style="margin-top:150px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-			<div class="panel panel-info">
-				<div class="panel-heading">
-					<div class="panel-title"><h5>Upload Your File</h5></div>
-					<div class="panel-title"><b style="color: red;">**Upload PDF, DOC & DOCS File Only!</b></div>
-					<div class="panel-title"><b style="color: red;">**File Max Size: 5.5MB</b></div>
-				</div>  
-				<div class="panel-body" >
-					<form id="EmployeeForm" class="form-horizontal" method="POST"  role="form" enctype="multipart/form-data">
-                        {{csrf_field()}}
-                        <center>
-                            <table align="center">
-                                @foreach($errors->all() as $error)
-                                    
-                                    <tr>
-                                        <td><b style="color: red;">{{$error}}</b></td>
-                                    </tr>
-                                    
-                                @endforeach
-                            </table>
-                        </center>
-						<div class="form-group">
-							<div>
-								<center>
-			            			<select name="group_id" style="width: 230px;" required>
-			              				<option value="">Select Group</option>
-			              			@foreach($group as $key)
-                                        <option value="{{$key['group_id']}}">{{$key['group_id']}}</option>
-                                    @endforeach
-			            			</select>
-			            		</center>
-		          			</div>
-							<label for="file" class="col-md-3 control-label">Upload File
-							</label>
-							<div class="col-md-9">
-								<input type="file" class="form-control" name="file" required>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="col-md-offset-3 col-md-9">
-								<input type="submit" name="submit" value="Upload" class="btn btn-accent">  
-							</div>
-						</div>
-					</form>
-				</div>
-			</div>
+          <div class="main-content-container container-fluid px-4">
+            <!-- Page Header -->
+            <div class="page-header row no-gutters py-4">
+              <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
+                <span class="text-uppercase page-subtitle">Overview</span>
+                <h3 class="page-title">Topic Details</h3>
+              </div>
+            </div>
+            <!-- <div class="input-group input-group-seamless ml-3">
+              <input id="search" class="navbar-search form-control" type="text" placeholder="Search Student" aria-label="Search" onkeyup="find()"></div> -->
+            
+            @yield('index')
+            
+          </div>
+          <footer class="main-footer d-flex p-2 px-3 bg-white border-top">
+            
+          </footer>
         </main>
       </div>
     </div>

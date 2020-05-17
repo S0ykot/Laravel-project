@@ -137,5 +137,9 @@ Route::group(['middleware'=>['sess']],function(){
 	Route::post('/admin/uploadFile', 'adminUploadFile@fileUpload');
 
 
+	Route::get('/admin/changePassword', 'adminChangePassword@index')->name('adminChangePassword.index');
+	Route::post('/admin/changePassword', 'adminChangePassword@change');
+
+
 	Route::get('/logout', 'logout@index');
 });

@@ -245,7 +245,7 @@
                     <span class="d-none d-md-inline-block">Admin</span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
-                    <a class="dropdown-item" href="/AdminChangePassword">
+                    <a class="dropdown-item" href="{{route('adminChangePassword.index')}}">
                       <i class="material-icons">&#xE7FD;</i> Change Password</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item text-danger" href="/logout">

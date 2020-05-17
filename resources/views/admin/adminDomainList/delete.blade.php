@@ -1,6 +1,6 @@
 @extends('admin/adminDomainList/nav2')
 
-@section('index')
+@section('delete')
 <title>Confirmation</title>
 
 <div class="row">
