@@ -12,8 +12,7 @@
                       
                     </div>
                   </div>
-                   <input class="navbar-search form-control" type="text" placeholder="Search by Name / Domain / Supervisor / Thesis Type..." aria-label="Search" id="abc" onkeyup="search()">
-
+                   <input class="navbar-search form-control" type="text" placeholder="Search by Name / Domain / Supervisor / Thesis Type..." aria-label="Search" id="abc">
                   </div>
               </form>
               <ul class="navbar-nav border-left flex-row ">
@@ -64,7 +63,7 @@
                     <a class="dropdown-item" href="{{route('studentPassword')}}">
                       <i class="material-icons">&#xE7FD;</i> Change Password</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="/">
+                    <a class="dropdown-item text-danger" href="/logout">
                       <i class="material-icons text-danger">&#xE879;</i> Logout </a>
                   </div>
                 </li>

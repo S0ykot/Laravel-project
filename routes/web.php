@@ -17,36 +17,38 @@ Route::get('/', function () {
 
 Route::get('/login', 'login@index')->name('login');
 Route::post('/login', 'login@verify');
-Route::get('/student/registration', 'studentReg@index')->name('studentReg');
-Route::post('/student/registration', 'studentReg@send');
-
+Route::prefix('student')->group(function(){
+	Route::get('/registration', 'studentReg@index')->name('studentReg');
+	Route::post('/registration', 'studentReg@send');
+});
 Route::group(['middleware'=>['sess']],function(){
 	
-	Route::get('/student/registration/credentials', 'studentReg@cred')->name('studentRegCred');
+	Route::prefix('student')->group(function(){
 
-	Route::get('/student/home', 'studentHome@index')->name('studentHome');
-	Route::post('/student/home', 'studentHome@update');
+		Route::get('/registration/credentials', 'studentReg@cred')->name('studentRegCred');
 
-	Route::get('/student/research', 'studentResearch@index')->name('studentResearch');
+		Route::get('/home', 'studentHome@index')->name('studentHome');
+		Route::post('/home', 'studentHome@update');
 
-	Route::get('/student/research/groupMembers', 'studentResearch@groupMembers')->name('groupMembers');
+		Route::get('/research', 'studentResearch@index')->name('studentResearch');
 
-	Route::get('/student/availableTopics', 'studentTopicsWindow@index')->name('studentTopicsWindow');
-	
-	Route::get('/student/topicDetails/{id}', 'studentTopicsWindow@topicDetails')->name('topicDetails');
-	Route::post('/student/topicDetails/{id}', 'studentTopicsWindow@apply');
+		Route::get('/research/groupMembers', 'studentResearch@groupMembers')->name('groupMembers');
 
-	Route::get('/student/file/upload', 'studentFile@uploadIndex')->name('file.upload');
-	Route::post('/student/file/upload', 'studentFile@upload');
+		Route::get('/availableTopics', 'studentTopicsWindow@index')->name('studentTopicsWindow');
+		Route::post('/availableTopics', 'studentTopicsWindow@search');
+		
+		Route::get('/topicDetails/{id}', 'studentTopicsWindow@topicDetails')->name('topicDetails');
+		Route::post('/topicDetails/{id}', 'studentTopicsWindow@apply');
 
-	Route::get('/student/file/download', 'studentFile@downloadIndex')->name('file.download');
-	Route::get('/student/file/download/{id}', 'studentFile@download')->name('file.downloadFile');
+		Route::get('/file/upload', 'studentFile@uploadIndex')->name('file.upload');
+		Route::post('/file/upload', 'studentFile@upload');
 
-	Route::get('/student/passwordChange', 'studentPassword@index')->name('studentPassword');
-	Route::post('/student/passwordChange', 'studentPassword@update');
+		Route::get('/file/download', 'studentFile@downloadIndex')->name('file.download');
+		Route::get('/file/download/{id}', 'studentFile@download')->name('file.downloadFile');
 
-	Route::get('/student/availableTopics/search/{value}', 'studentTopicsWindow@search')->name('topicSearch');
-
+		Route::get('/passwordChange', 'studentPassword@index')->name('studentPassword');
+		Route::post('/passwordChange', 'studentPassword@update');
+	});
 	Route::get('/logout', 'logout@index');
 
 	//Route::resource('user', 'UserController');

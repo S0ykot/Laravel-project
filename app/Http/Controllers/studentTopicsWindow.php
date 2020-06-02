@@ -68,19 +68,24 @@ class studentTopicsWindow extends Controller
         //echo count($groupMembers);
     }
 
-     public function search($value){
-        $subDom = DB::table('sub_domain')
-                ->join('domain_research','sub_domain.dom_id','=','domain_research.dom_id')
-                ->join('faculty','sub_domain.fid','=','faculty.fid')
-                ->join('thesis_type','sub_domain.type_id','=','thesis_type.type_id')
-                ->where('subDom_name', 'like', '%' . $value . '%')
-                ->orWhere('type_name', 'like', '%' . $value . '%')
-                ->orWhere('dom_name', 'like', '%' . $value . '%')
-                ->orWhere('faculty_fname', 'like', '%' . $value . '%')
-                ->orWhere('faculty_lname', 'like', '%' . $value . '%')
-                ->get();
-
-
-        return view('student.topics.Search.search')->with(['subDom'=>$subDom]);
+     public function search(Request $req){
+        if($req->ajax()){
+            $value = $_POST['value'];
+            $subDom = DB::table('sub_domain')
+                    ->join('domain_research','sub_domain.dom_id','=','domain_research.dom_id')
+                    ->join('faculty','sub_domain.fid','=','faculty.fid')
+                    ->join('thesis_type','sub_domain.type_id','=','thesis_type.type_id')
+                    ->where('subDom_name', 'like', '%' . $value . '%')
+                    ->orWhere('type_name', 'like', '%' . $value . '%')
+                    ->orWhere('dom_name', 'like', '%' . $value . '%')
+                    ->orWhere('faculty_fname', 'like', '%' . $value . '%')
+                    ->orWhere('faculty_lname', 'like', '%' . $value . '%')
+                    ->get();
+            if(count($subDom)>=1){
+                return view('student.topics.Search.search')->with(['subDom'=>$subDom]);
+            }else{
+                echo '<div class="mt-4"><h3><strong>No Data Found!</h3><strong></div>';
+            }
+        }
     }
 }

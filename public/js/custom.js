@@ -20,6 +20,21 @@ $(document).ready(function(){
         window.location='http://localhost:3000/student/research';
     });
 
+    $('#abc').on('keyup',function(event){
+        var token = $('input[name=_token]').val();
+        var searchValue = $(this).val();
+        $.ajax({
+            url:'http://localhost:3000/student/availableTopics',
+            method:'POST',
+            data:{_token:token, value:searchValue},
+            success:function(response){
+                $('#studentInfo').html(response);
+            },
+            error: function(error){
+                alert(error.status);
+            }
+        });
+    });
 });
 
 function goTo(value){

@@ -1,4 +1,4 @@
- @extends('student/ParentLayout/header')
+ @extends('student/topics/available/header')
 
  @section('home')
  <div class="page-header row no-gutters py-4" style="margin-left: 10px">
@@ -51,4 +51,5 @@
          </div>
      </div>
  </div>
+ @csrf
  @endsection
