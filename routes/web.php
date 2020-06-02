@@ -35,7 +35,9 @@ Route::group(['middleware'=>['sess']],function(){
 		Route::get('/research/groupMembers', 'studentResearch@groupMembers')->name('groupMembers');
 
 		Route::get('/availableTopics', 'studentTopicsWindow@index')->name('studentTopicsWindow');
-		Route::post('/availableTopics', 'studentTopicsWindow@search');
+		Route::post('/availableTopics', 'studentTopicsWindow@fetch');
+		
+		Route::post('/availableTopics/search', 'studentTopicsWindow@search');
 		
 		Route::get('/topicDetails/{id}', 'studentTopicsWindow@topicDetails')->name('topicDetails');
 		Route::post('/topicDetails/{id}', 'studentTopicsWindow@apply');

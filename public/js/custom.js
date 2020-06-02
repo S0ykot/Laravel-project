@@ -24,11 +24,29 @@ $(document).ready(function(){
         var token = $('input[name=_token]').val();
         var searchValue = $(this).val();
         $.ajax({
-            url:'http://localhost:3000/student/availableTopics',
+            url:'http://localhost:3000/student/availableTopics/search',
             method:'POST',
             data:{_token:token, value:searchValue},
             success:function(response){
                 $('#studentInfo').html(response);
+            },
+            error: function(error){
+                alert(error.status);
+            }
+        });
+    });
+
+    $(document).on('click','.page-link',function(event){
+        event.preventDefault();
+        var page = $(this).attr('href').split('page=')[1];
+        var token = $('input[name=_token]').val();
+
+        $.ajax({
+            url:'http://localhost:3000/student/availableTopics',
+            method:'POST',
+            data:{_token:token, page:page},
+            success:function(response){
+                $('#page').html(response);
             },
             error: function(error){
                 alert(error.status);

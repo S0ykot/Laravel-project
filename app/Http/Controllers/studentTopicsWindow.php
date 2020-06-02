@@ -22,8 +22,20 @@ class studentTopicsWindow extends Controller
     				->join('domain_research','sub_domain.dom_id','=','domain_research.dom_id')
     				->join('faculty','sub_domain.fid','=','faculty.fid')
     				->join('thesis_type','sub_domain.type_id','=','thesis_type.type_id')
-    				->get();
-    	return view('student.topics.Available.content')->with(['subDom'=>$subDom]);
+    				->simplePaginate(1);
+    	return view('student.topics.Available.content',compact('subDom'));
+    }
+
+     public function fetch(Request $req){
+
+    	if($req->ajax()){
+    		$subDom = DB::table('sub_domain')
+    				->join('domain_research','sub_domain.dom_id','=','domain_research.dom_id')
+    				->join('faculty','sub_domain.fid','=','faculty.fid')
+    				->join('thesis_type','sub_domain.type_id','=','thesis_type.type_id')
+    				->simplePaginate(1);
+    		return view('student.topics.Available.page',compact('subDom'))->render();
+    	}
     }
 
     public function topicDetails(Request $req, $id){
