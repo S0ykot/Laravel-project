@@ -26,6 +26,7 @@
 <!--===============================================================================================-->	
 	<link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css">
 	<link rel="stylesheet" type="text/css" href="/css/util.css">
 	<link rel="stylesheet" type="text/css" href="/css/main.css">
 <!--===============================================================================================-->
@@ -39,6 +40,8 @@
 		</div>
 	</div>
 </div>
+
+
 	
 <!--===============================================================================================-->
 	<script src="/vendor/jquery/jquery-3.2.1.min.js"></script>
@@ -55,6 +58,7 @@
 <!--===============================================================================================-->
 	<script src="/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 	<script src="/js/main.js"></script>
 
 </body>

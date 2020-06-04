@@ -53,6 +53,7 @@ Route::group(['middleware'=>['sess']],function(){
 	});
 	Route::get('/logout', 'logout@index');
 
+
 	//Route::resource('user', 'UserController');
 	//Route::resource('student', 'StudentController');
 });

@@ -17,10 +17,10 @@ class studentHome extends Controller
 
     public function update(StudentRequest $request)
     {
-        $val = $request->validated();
+        $notification = $request->validated();
 
-        if($val==null){
-            return back()->withError($val)->withInput();
+        if($notification==null){
+            return back()->with($notification)->withInput();
             //print("Something wrong");
         }else{
             //echo $request->student_lname;
@@ -32,8 +32,12 @@ class studentHome extends Controller
             $student->student_cgpa = $request->student_cgpa;
             $student->student_contact = $request->student_contact;
             $student->save();
-            $request->session()->flash('updateMssg', 'Update Successful!');
-            return redirect()->route('studentHome');
+            $notification = array(
+            'message'=>'Update Successful!',
+            'alert-type'=>'success'
+            );
+            return back()->with($notification);
+            //return redirect()->route('studentHome');
         }
         
 

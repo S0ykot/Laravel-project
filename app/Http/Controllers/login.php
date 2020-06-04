@@ -14,7 +14,7 @@ class login extends Controller
     public function index(){
     	return view('generalLogin.content');
     }
-
+    
     public function verify(Request $req){
     	/*$user = user::where('user_id_name', $req->uname)
     				->where('password', $req->password)

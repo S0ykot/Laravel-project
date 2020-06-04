@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Http\Requests\UploadRequest;
 use App\file;
-use App\student;
 use App\research_group;
+use App\student;
 use App\student_thesis;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 
@@ -16,7 +16,6 @@ class studentFile extends Controller
     public function uploadIndex(){
        return view('student.upload.content');
     }
-
     public function upload(UploadRequest $req){
          $val = $req->validated();
         if($val==null){
